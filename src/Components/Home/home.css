@@ -1,0 +1,49 @@
+.heading{
+    /* height:100vh; */
+    width: 100vw;
+    position: absolute;
+    top:0;
+    z-index: -1;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(50,50,112,1) 40%, rgba(0,212,255,1) 100%);
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .heading{
+        height:100vh;
+        background: rgb(2,0,36);
+        background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(50,50,112,1) 40%, rgba(0,212,255,1) 100%);
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .heading{
+        height:100vh;
+        width: 100%;
+        background: rgb(2,0,36);
+        background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(50,50,112,1) 40%, rgba(0,212,255,1) 100%);
+    }
+}
