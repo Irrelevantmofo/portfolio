@@ -3,7 +3,7 @@ import {
     Row,
     Col,
     Image,
-    // Container
+    Container
 } from 'react-bootstrap';
 import Profile from '../../Assets/profile_pic.jpg'
 import './home.css';
@@ -19,11 +19,12 @@ class Home extends Component{
 
         return(
             <Aux>
-                <div className='home'>
+                <div className='heading'>
+                    <div className='pt-5'>
                     <Particles
-                        height='90vh'
+                        height='100%'
                         style={{
-                            zIndex:'0',
+                            zIndex:'1',
                             position:'absolute',
                             left:'0',
                             top:'0'
@@ -46,11 +47,10 @@ class Home extends Component{
                         }
                     }}
                     />
-                    <div id='home' className='heading pt-5'>
                         <div className='content pt-5 px-3 pb-3'>
                             <Row>
                                 <Col lg={{ span: 6, offset: 3 }} >
-                                    <h1 className='display-3 pt-2' style={{color:'white'}}>Joshua Fabricante</h1>
+                                    <h1 className='display-3  pt-2' style={{color:'white'}}>Joshua Fabricante</h1>
                                     <p className='lead mx-auto pt-5' style={{color:'white'}}>
                                         Hi! My name is Joshua Irving B. Fabricante, and I'm a Philippine-based 
                                         freelancer. If i'm not freelancing at some of Philippines' finest digital agencies, 
@@ -63,21 +63,24 @@ class Home extends Component{
                                     
                                 </Col>
                             </Row>
-                            <Row>
+                            <Row className='pb-3'>
                                 <Col>
                                     <Image className="profile-pic-main pt-5" style={{width:'100px'}} src={Profile} roundedCircle />
                                 </Col>
                             </Row>
-                            <div className='links'>
-                                <Row>
-                                    <Col>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/Joshua_irvingF"><i className="fab fa-twitter-square fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Joshua.starkiller115"><i className="fab fa-facebook-square fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/joshuafabricante"><i className="fab fa-linkedin fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/joshuanderful"><i className="fab fa-instagram-square fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
-                                    </Col>
-                                </Row>
-                            </div>
+                            <Row className='d-flex justify-content-around px-0'  >
+                                <Col className='px-0' style={{position:'absolute', zIndex:'4', width:'100%'}}>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/Joshua_irvingF"><i className="fab fa-twitter-square fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Joshua.starkiller115"><i className="fab fa-facebook-square fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/joshuafabricante"><i className="fab fa-linkedin fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/joshuanderful"><i className="fab fa-instagram-square fa-2x"  style={{color:'white',padding:'1%'}}></i></a>
+                                </Col>
+                            </Row>
+                            <Row className='py-5'>
+                                <Col>
+                                    
+                                </Col>
+                            </Row>
                         </div>
                     </div>
                 </div>
