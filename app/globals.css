@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Smooth transitions for interactions */
+img {
+  @apply transition-transform duration-300;
+}
