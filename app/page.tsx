@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -17,11 +16,10 @@ export default function Home() {
           <div className="mb-12 flex justify-center">
             <div className="relative w-40 h-40">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-lg opacity-75"></div>
-              <Image
-                src="/images/profile_pic.jpg"
+              <img
+                src={`${process.env.NODE_ENV === "production" ? "/portfolio" : ""}/images/profile_pic.jpg`}
                 alt="Joshua Fabricante"
-                fill
-                className="rounded-full object-cover ring-4 ring-white dark:ring-gray-900 relative"
+                className="absolute inset-0 rounded-full object-cover ring-4 ring-white dark:ring-gray-900"
               />
             </div>
           </div>
