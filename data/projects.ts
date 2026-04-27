@@ -18,7 +18,7 @@ export const projects: Project[] = [
     title: "Nessy Cloud Application",
     description: "This website is built with Nextjs + Sanity",
     imageUrl: "/images/nessy.png",
-    link: "https://danahercn.com",
+    link: "https://portal.nessycloud.de",
     category: "Nextjs",
     whatIsIt: "Cloud-based SaaS application built with Next.js",
     contributions: [
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     title: "DFK Group Website",
     description: "This website is built with Nextjs + Sanity",
     imageUrl: "/images/dfkgruppe.png",
-    link: "https://danahercn.com",
+    link: "https://dfkgroup.de",
     category: "Nextjs",
     whatIsIt: "Professional services company website using Next.js and Sanity CMS",
     contributions: [

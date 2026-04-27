@@ -19,28 +19,28 @@ export default function Home() {
               <img
                 src={`${process.env.NODE_ENV === "production" ? "/portfolio" : ""}/images/profile_pic.jpg`}
                 alt="Joshua Fabricante"
-                className="absolute inset-0 rounded-full object-cover ring-4 ring-white dark:ring-gray-900"
+                className="absolute inset-0 rounded-full object-cover ring-4 ring-gray-900"
               />
             </div>
           </div>
 
           {/* Name */}
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4">
             Joshua Irving B. Fabricante
           </h1>
 
           {/* Title */}
-          <p className="text-xl sm:text-2xl text-indigo-600 dark:text-indigo-400 font-semibold mb-6">
+          <p className="text-xl sm:text-2xl text-indigo-400 font-semibold mb-6">
             Full-Stack Developer & Freelancer
           </p>
 
           {/* Bio */}
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="text-lg text-gray-300 mb-4 leading-relaxed">
             Philippine-based developer building modern web applications for clients worldwide.
             Specialized in full-stack development with a focus on scalability and user experience.
           </p>
 
-          <p className="text-base text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
+          <p className="text-base text-gray-400 mb-10 leading-relaxed">
             I combine front-end expertise with solid backend architecture to deliver complete solutions.
             Whether it's a sleek Next.js application or a robust Laravel backend, I'm ready to bring your vision to life.
           </p>
@@ -51,7 +51,7 @@ export default function Home() {
               (skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-700/50 hover:border-indigo-400 dark:hover:border-indigo-600 transition"
+                  className="px-4 py-2 bg-indigo-900/40 text-indigo-300 rounded-full text-sm font-medium border border-indigo-700/50 hover:border-indigo-600 transition"
                 >
                   {skill}
                 </span>
@@ -65,7 +65,7 @@ export default function Home() {
               href="https://twitter.com/Joshua_irvingF"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
               aria-label="Twitter"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -76,7 +76,7 @@ export default function Home() {
               href="https://www.facebook.com/Joshua.starkiller115"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
               aria-label="Facebook"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -87,7 +87,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/joshuafabricante"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
               aria-label="LinkedIn"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default function Home() {
               href="https://www.instagram.com/joshuanderful"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
               aria-label="Instagram"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export default function Home() {
             </Link>
             <a
               href="mailto:joshua.starkiller115@gmail.com"
-              className="inline-block px-8 py-3 border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 font-semibold rounded-lg transition"
+              className="inline-block px-8 py-3 border-2 border-indigo-400 text-indigo-400 hover:bg-indigo-900/20 font-semibold rounded-lg transition"
             >
               Get In Touch
             </a>
