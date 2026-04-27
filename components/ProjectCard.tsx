@@ -16,13 +16,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <div className="bg-gray-900 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col border border-gray-800">
       {/* Image Container */}
       <div className="relative h-48 w-full bg-gray-800 overflow-hidden group">
-        <Image
-          src={project.imageUrl}
-          alt={project.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {project.imageUrl.startsWith("http") ? (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        )}
       </div>
 
       <div className="p-6 flex flex-col flex-1">

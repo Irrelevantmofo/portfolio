@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/portfolio",
+  basePath: process.env.NODE_ENV === "production" ? "/portfolio" : "",
   images: {
     unoptimized: true,
     remotePatterns: [
