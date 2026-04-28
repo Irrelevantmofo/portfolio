@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     id: "nessy-application",
     title: "Nessy Cloud Application",
-    description: "This website is built with Nextjs + Sanity",
+    description: "This website is built with Nextjs + graphQL + prisma",
     imageUrl: "/images/nessy.png",
     link: "https://portal.nessycloud.de",
     category: "Nextjs",
