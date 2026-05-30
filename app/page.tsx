@@ -46,7 +46,7 @@ export default function Home() {
 
           {/* Title */}
           <p className="text-xl sm:text-2xl text-indigo-400 font-semibold mb-6">
-            Full-Stack Developer & Freelancer
+            Freelance Full-Stack Developer 
           </p>
 
           {/* Bio */}
