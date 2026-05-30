@@ -1,7 +1,7 @@
 // n8n production webhook that pings you (via Telegram) about portfolio
 // activity. The n8n workflow must be set to Active for this to fire.
 export const WEBHOOK_URL =
-  "https://joshuairvingf.app.n8n.cloud/webhook-test/projects-viewed";
+  "https://joshuairvingf.app.n8n.cloud/webhook/projects-viewed";
 
 // Per-session ID held in memory only — never written to localStorage/cookies,
 // so it's not persistent tracking and needs no consent banner (GDPR/ePrivacy).
