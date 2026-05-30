@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedProjectsLink from "@/components/TrackedProjectsLink";
 
 export default function Navbar() {
   return (
@@ -16,12 +17,12 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <Link
-              href="/projects"
+            <TrackedProjectsLink
+              source="navbar"
               className="text-gray-300 hover:text-indigo-400 font-medium transition"
             >
               Projects
-            </Link>
+            </TrackedProjectsLink>
           </div>
         </div>
       </div>

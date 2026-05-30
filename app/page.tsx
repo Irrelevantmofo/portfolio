@@ -1,8 +1,10 @@
-import Link from "next/link";
+import TrackedProjectsLink from "@/components/TrackedProjectsLink";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
+      <PageViewTracker source="home-visit" />
       {/* Hero Section with Gradient */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Gradient Background */}
@@ -112,12 +114,12 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/projects"
+            <TrackedProjectsLink
+              source="hero-cta"
               className="inline-block px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition shadow-lg hover:shadow-xl"
             >
               View My Projects
-            </Link>
+            </TrackedProjectsLink>
             <a
               href="mailto:joshua.starkiller115@gmail.com"
               className="inline-block px-8 py-3 border-2 border-indigo-400 text-indigo-400 hover:bg-indigo-900/20 font-semibold rounded-lg transition"
