@@ -1,24 +1,22 @@
 // n8n production webhook that pings you (via Telegram) about portfolio
 // activity. The n8n workflow must be set to Active for this to fire.
 export const WEBHOOK_URL =
-  "https://joshuairvingf.app.n8n.cloud/webhook/projects-viewed";
+  "https://joshuairvingf.app.n8n.cloud/webhook-test/projects-viewed";
 
-const VISITOR_ID_KEY = "portfolio_visitor_id";
+// Per-session ID held in memory only — never written to localStorage/cookies,
+// so it's not persistent tracking and needs no consent banner (GDPR/ePrivacy).
+// It survives client-side navigation within one visit (Next keeps the JS
+// runtime alive across <Link> route changes), letting you see that, e.g., a
+// home visit and a projects click came from the same session. A hard refresh
+// or a brand-new visit produces a fresh ID.
+let sessionId: string | null = null;
 
-/**
- * Returns a stable per-browser ID so you can tell that multiple events (e.g. a
- * home visit followed by a projects click) came from the same person. Persists
- * in localStorage; generated once on first visit. Resets if storage is cleared
- * or a different browser/device is used.
- */
-function getVisitorId(): string {
+function getSessionId(): string {
   try {
-    let id = localStorage.getItem(VISITOR_ID_KEY);
-    if (!id) {
-      id = crypto.randomUUID();
-      localStorage.setItem(VISITOR_ID_KEY, id);
+    if (!sessionId) {
+      sessionId = crypto.randomUUID();
     }
-    return id;
+    return sessionId;
   } catch {
     return "unknown";
   }
@@ -37,7 +35,7 @@ export function notify(source: string) {
     const payload = new URLSearchParams({
       source,
       timestamp: new Date().toISOString(),
-      visitorId: getVisitorId(),
+      visitorId: getSessionId(),
     });
     navigator.sendBeacon(WEBHOOK_URL, payload);
   } catch {
