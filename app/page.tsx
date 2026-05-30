@@ -32,7 +32,7 @@ export default function Home() {
             <div className="relative w-40 h-40">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-lg opacity-75"></div>
               <img
-                src={`${process.env.NODE_ENV === "production" ? "/portfolio" : ""}/images/profile_pic.jpg`}
+                src={`${process.env.NODE_ENV === "production" ? "/portfolio" : ""}/images/profile.jfif`}
                 alt="Joshua Fabricante"
                 className="absolute inset-0 rounded-full object-cover ring-4 ring-gray-900"
               />
