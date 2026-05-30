@@ -1,6 +1,19 @@
 import TrackedProjectsLink from "@/components/TrackedProjectsLink";
 import PageViewTracker from "@/components/PageViewTracker";
 
+const skills = [
+  "Next.js",
+  "React",
+  "JavaScript",
+  "n8n",
+  "Puppeteer",
+  "Prisma",
+  "TypeScript",
+  "Laravel",
+  "GraphQL",
+  "Sanity",
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
@@ -38,27 +51,28 @@ export default function Home() {
 
           {/* Bio */}
           <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-            Philippine-based developer building modern web applications for clients worldwide.
+            A Philippine-based web developer building modern web applications for clients worldwide.
             Specialized in full-stack development with a focus on scalability and user experience.
           </p>
 
           <p className="text-base text-gray-400 mb-10 leading-relaxed">
-            I combine front-end expertise with solid backend architecture to deliver complete solutions.
-            Whether it's a sleek Next.js application or a robust Laravel backend, I'm ready to bring your vision to life.
+          I fix technical challenges that slow your business down. From fast Next.js web applications to automated n8n workflows and AWS architectures, 
+          I build the high-performance systems your company needs to scale.
           </p>
 
-          {/* Skills */}
-          <div className="mb-12 flex flex-wrap justify-center gap-3">
-            {["Next.js", "React", "JavaScript", "Laravel","Puppeteer", "WordPress", "TypeScript"].map(
-              (skill) => (
+          {/* Skills - infinite single-line marquee */}
+          <div className="mb-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-marquee">
+              {/* Two identical copies so the -50% loop is seamless */}
+              {[...skills, ...skills].map((skill, i) => (
                 <span
-                  key={skill}
-                  className="px-4 py-2 bg-indigo-900/40 text-indigo-300 rounded-full text-sm font-medium border border-indigo-700/50 hover:border-indigo-600 transition"
+                  key={i}
+                  className="mr-3 whitespace-nowrap px-4 py-2 bg-indigo-900/40 text-indigo-300 rounded-full text-sm font-medium border border-indigo-700/50"
                 >
                   {skill}
                 </span>
-              )
-            )}
+              ))}
+            </div>
           </div>
 
           {/* Social Links */}

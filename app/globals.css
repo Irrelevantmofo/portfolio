@@ -14,3 +14,31 @@
 img {
   @apply transition-transform duration-300;
 }
+
+/* Infinite, seamless single-line marquee (skills carousel).
+   The track holds two identical copies of the content; translating it by -50%
+   lands the second copy exactly where the first started, so the loop has no
+   visible seam. `linear` timing keeps it gliding with no easing "ticks". */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 100s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
