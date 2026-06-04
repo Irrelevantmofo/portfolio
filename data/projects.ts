@@ -69,6 +69,20 @@ export const projects: Project[] = [
       "Multi-language localization and internationalization (i18n) framework implementation",
     ],
   },
+  {
+    id: "iligan-car-rentals",
+    title: "Iligan Car Rentals",
+    description: "Work-in-progress hobby app built with Next.js + MUI + Supabase",
+    imageUrl: "/images/car-rental-app.png",
+    link: "https://car-rental-app-rose-two.vercel.app",
+    category: "Nextjs",
+    whatIsIt: "A car rental platform for Iligan City — a personal hobby project exploring Next.js with Material UI and Supabase as the backend and database.",
+    contributions: [
+      "Full-stack development with Next.js and Supabase (auth, database, storage)",
+      "UI implementation using Material UI (MUI) component library",
+      "Car listing, booking flow, and availability management",
+    ],
+  },
   
 
   // Laravel Applications
