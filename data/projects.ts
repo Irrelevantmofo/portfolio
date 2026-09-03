@@ -14,6 +14,35 @@ export interface Project {
 export const projects: Project[] = [
   // Nextjs Applications
   {
+    id: "credit-score-simulator",
+    title: "Credit Report Analyzer & Credit Score Simulator",
+    description: "This app is built with Next.js + Supabase + OpenRouter + GoHighLevel",
+    imageUrl: "/images/Credit-score-simulator.png",
+    link: "https://creditcrb.com/identityIQ-credit-simulator/",
+    category: "Nextjs",
+    whatIsIt: "An AI-powered platform that parses credit report PDFs, extracts key metrics, powers an interactive credit score simulator, and generates personalized roadmaps to reach a 700+ credit score.",
+    contributions: [
+      "Full-stack development with Next.js and Supabase (auth, database, storage)",
+      "Credit report PDF ingestion, parsing, and AI metric extraction via OpenRouter",
+      "Interactive score simulator with personalized roadmap recommendations",
+      "GoHighLevel (GHL) CRM integration for lead capture and automation",
+    ],
+  },
+  {
+    id: "business-loan-analyzer",
+    title: "Business Loan Analyzer Tool",
+    description: "This app is built with Next.js + Supabase + OpenRouter + GoHighLevel",
+    imageUrl: "/images/business-loan-analyzer.png",
+    link: "https://creditcrb.com/business-loan-analyzer/",
+    category: "Nextjs",
+    whatIsIt: "An AI-powered tool that accepts business inputs and evaluates qualification criteria to automatically match users with eligible business loan offers.",
+    contributions: [
+      "Full-stack development with Next.js and Supabase (auth, database, storage)",
+      "AI-driven qualification and loan-matching logic via OpenRouter",
+      "GoHighLevel (GHL) CRM integration for lead capture and automation",
+    ],
+  },
+  {
     id: "nessy-application",
     title: "Nessy Cloud Application",
     description: "This website is built with Nextjs + graphQL + prisma",
@@ -123,35 +152,6 @@ export const projects: Project[] = [
       "Full-stack development with Next.js and Supabase (auth, database, storage)",
       "UI implementation using Material UI (MUI) component library",
       "Car listing, booking flow, and availability management",
-    ],
-  },
-  {
-    id: "business-loan-analyzer",
-    title: "Business Loan Analyzer Tool",
-    description: "This app is built with Next.js + Supabase + OpenRouter + GoHighLevel",
-    imageUrl: "/images/business-loan-analyzer.png",
-    link: "https://business-loan-analyzer-tool.vercel.app",
-    category: "Nextjs",
-    whatIsIt: "An AI-powered tool that accepts business inputs and evaluates qualification criteria to automatically match users with eligible business loan offers.",
-    contributions: [
-      "Full-stack development with Next.js and Supabase (auth, database, storage)",
-      "AI-driven qualification and loan-matching logic via OpenRouter",
-      "GoHighLevel (GHL) CRM integration for lead capture and automation",
-    ],
-  },
-  {
-    id: "credit-score-simulator",
-    title: "Credit Report Analyzer & Credit Score Simulator",
-    description: "This app is built with Next.js + Supabase + OpenRouter + GoHighLevel",
-    imageUrl: "/images/Credit-score-simulator.png",
-    link: "https://identity-iq-credit-score-simulator.vercel.app",
-    category: "Nextjs",
-    whatIsIt: "An AI-powered platform that parses credit report PDFs, extracts key metrics, powers an interactive credit score simulator, and generates personalized roadmaps to reach a 700+ credit score.",
-    contributions: [
-      "Full-stack development with Next.js and Supabase (auth, database, storage)",
-      "Credit report PDF ingestion, parsing, and AI metric extraction via OpenRouter",
-      "Interactive score simulator with personalized roadmap recommendations",
-      "GoHighLevel (GHL) CRM integration for lead capture and automation",
     ],
   },
   {
