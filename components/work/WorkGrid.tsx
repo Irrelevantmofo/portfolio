@@ -132,7 +132,7 @@ export default function WorkGrid({ items, toolNames, hideFeaturedByDefault = fal
           <>
             Showing {visible.length} project{visible.length === 1 ? "" : "s"} using{" "}
             <span className="font-medium text-accent">{toolNames[tool]}</span>
-            {visible.length === 0 && " — in production use, no public project yet"}.{" "}
+            .{visible.length === 0 && " I've used it in production, but there's no public project to show yet."}{" "}
             <button type="button" onClick={() => setTool(null)} className="text-fg underline underline-offset-4">
               Clear filter
             </button>

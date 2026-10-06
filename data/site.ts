@@ -60,7 +60,7 @@ export const timeline: TimelineEntry[] = [
     role: "Full-stack Next.js developer",
     org: "Agency work (Germany)",
     summary:
-      "Next.js + Sanity corporate sites and SaaS for German clients — Danaher, DFK Group, Vita Core, Tourismus Damp, First Automotive Parts and Nessy Cloud.",
+      "Next.js + Sanity corporate sites and SaaS for German clients, including Danaher, DFK Group, Vita Core, Tourismus Damp, First Automotive Parts and Nessy Cloud.",
     highlights: ["Next.js + Sanity", "i18n", "GraphQL + Prisma", "AWS Serverless"],
   },
   {

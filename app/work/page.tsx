@@ -10,7 +10,7 @@ import { tools, usedIn } from "@/data/tools";
 export const metadata: Metadata = {
   title: "All work",
   description:
-    "Every project: Next.js web apps, Sanity corporate sites, AWS Serverless SaaS and n8n / AI automation systems — filterable by stack.",
+    "All my projects: Next.js web apps, Sanity corporate sites, AWS Serverless SaaS and n8n / AI automation systems. Filter by type or tool.",
   alternates: { canonical: "work/" },
 };
 
@@ -26,7 +26,6 @@ export default function WorkPage() {
       <PageViewTracker source="work-visit" />
       <SectionHeading
         as="h1"
-        index="—"
         eyebrow="All work"
         title="Everything I've shipped."
         intro="Web apps, websites and automation systems for agencies, clients and Credit CRB. Filter by type or by tool."

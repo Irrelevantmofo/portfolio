@@ -113,14 +113,14 @@ export const projects: Project[] = [
     featured: true,
     client: "Credit CRB",
     outcome:
-      "One source video or PDF in → a full set of blog, article and social drafts out, each with one-click approve/reject.",
+      "Turns one video or PDF into a full set of blog, article and social drafts, each with its own approve and reject links.",
     summary:
       "An n8n system that turns one long-form source into a reviewed, versioned set of channel-ready drafts, then generates hero images and queues them for publishing once approved.",
     contributions: [
-      "A 71-node intake-to-generation workflow: form upload → text extraction → AI fact extraction → master content → per-asset generation",
+      "A 71-node workflow that takes a form upload, extracts the text, pulls out key facts with an LLM, writes master content and then generates each asset",
       "A validation retry ladder of up to 3 attempts per asset",
       "Each draft is emailed with its own Approve / Reject links",
-      "Client revisions by replying to the email — a Gmail trigger regenerates and versions the draft",
+      "Clients can ask for revisions by replying to the email. A Gmail trigger regenerates the draft and saves it as a new version",
       "Approval triggers a second workflow for hero-image generation and the publish queue",
       "Idempotency: a draft_id (job__type__seq) join key prevents double approvals",
     ],
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     kind: "automation",
     featured: true,
     client: "Credit CRB",
-    outcome: "Tag a list in the CRM → an AI voice agent calls every lead, 50 at a time, and logs every outcome.",
+    outcome: "Tag a list in the CRM and an AI voice agent calls every lead, 50 at a time, logging how each call went.",
     summary:
       "An n8n + Telnyx dialer that drains a GoHighLevel-fed queue in concurrent batches, with a distributed lock, call polling and per-lead outcome logging.",
     contributions: [
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     results: [
       "50 concurrent AI calls per batch",
       "Active calls polled every 30s; next batch starts only when the line is clear",
-      "Number warm-up ramp: 50 → 100 → 250 → 500 → 1k → 2k calls/day",
+      "Number warm-up plan: 50, 100, 250, 500, 1k, then 2k calls a day",
     ],
     stack: ["n8n", "telnyx", "gohighlevel", "webhooks"],
     flowId: "ai-dialer",
@@ -168,7 +168,7 @@ export const projects: Project[] = [
       problem:
         "Sales had lists of leads in the CRM and not enough hours to call them. The dialer had to call everyone, never double-dial, survive errors, and protect the phone numbers' reputation.",
       notes: [
-        "Planned a call ramp-up to warm new numbers (50 → 100 → 250 → 500 → 1k → 2k/day), so carriers don't flag them as spam.",
+        "I planned a gradual ramp-up for new numbers (50, 100, 250, 500, 1k, then 2k calls a day) so carriers don't flag them as spam.",
       ],
     },
   },
@@ -330,7 +330,7 @@ export const projects: Project[] = [
     client: "Personal",
     outcome: "Hobby car-rental platform exploring Next.js, MUI and Supabase.",
     summary:
-      "A car rental platform for Iligan City — a personal hobby project exploring Next.js with Material UI and Supabase as the backend and database.",
+      "A car rental platform for Iligan City. It's a personal hobby project where I'm trying out Next.js with Material UI, with Supabase as the backend and database.",
     contributions: [
       "Full-stack development with Next.js and Supabase (auth, database, storage)",
       "UI implementation using the Material UI (MUI) component library",
@@ -347,7 +347,7 @@ export const projects: Project[] = [
     title: "Podcast Outreach System",
     kind: "automation",
     client: "Credit CRB",
-    outcome: "Pitches 129 fit-ranked podcasts on autopilot and flags the ones that say yes.",
+    outcome: "Pitches a list of 129 podcasts, ranked by fit, and flags the hosts who reply with interest.",
     summary:
       "A weekday sender with +4d and +6d follow-ups, a reply/bounce watcher, GoHighLevel tagging and tasks, and alerts on interested replies.",
     contributions: [
@@ -365,11 +365,11 @@ export const projects: Project[] = [
     title: "AI Video & Asset Pipeline",
     kind: "automation",
     client: "Credit CRB",
-    outcome: "Generated stills and clips, quality-gated by AI vision, assembled into voiced videos.",
+    outcome: "Generates images and clips, checks them with AI vision, and assembles them into narrated videos.",
     summary:
       "Higgsfield stills pass a fail-closed Claude vision rules check and are auto-tagged into a clip library, then assembled with Json2Video and ElevenLabs voiceover.",
     contributions: [
-      "Claude vision “fail-closed” rules check on generated stills (no lettering, logos or cartoons)",
+      "A Claude vision check on every generated image that rejects anything with lettering, logos or cartoon styles",
       "Auto-tagging into a reusable clip library",
       "Json2Video assembly with ElevenLabs voiceover",
       "Tested Kling and Minimax video models",
@@ -384,7 +384,7 @@ export const projects: Project[] = [
     outcome: "creditcrb.com load time cut from ~11s to 2–3s.",
     summary: "Audited the company site and removed about 20 unused plugins.",
     contributions: ["Performance audit of creditcrb.com", "Removed ~20 unused plugins"],
-    results: ["Load time ~11s → 2–3s"],
+    results: ["Load time cut from about 11s to 2–3s"],
     // TODO(Joshua): confirm the platform (WordPress?) so the right tool can be linked.
     stack: [],
     link: "https://creditcrb.com",
@@ -394,9 +394,9 @@ export const projects: Project[] = [
     title: "Ops Automations",
     kind: "automation",
     client: "Credit CRB",
-    outcome: "Small automations that take daily admin off the team's plate.",
+    outcome: "Smaller automations that handle routine admin for the team.",
     summary:
-      "A Telegram AI agent, Fathom meeting notes → Gmail, a document-upload intake flow, and outbound-call booking and logging.",
+      "A Telegram AI agent, Fathom meeting notes sent to Gmail, a document-upload intake flow, and booking and logging for outbound calls.",
     contributions: [
       "Telegram AI agent",
       "Fathom meeting notes delivered to Gmail",
@@ -410,14 +410,14 @@ export const projects: Project[] = [
     title: "This site",
     kind: "web-app",
     client: "Personal",
-    outcome: "Next 16 static export, CI to GitHub Pages, and n8n → Telegram visit alerts.",
+    outcome: "A static Next 16 site deployed by GitHub Actions, with Telegram alerts for visits sent through n8n.",
     summary:
       "The portfolio you're reading: a statically exported Next.js 16 site deployed by GitHub Actions, with an n8n webhook that pings Telegram on visits and contact clicks.",
     contributions: [
       "Next.js 16 App Router static export with Tailwind v4",
       "GitHub Actions: lint, type-check, build and deploy to Pages",
-      "n8n webhook → Telegram visit and contact-click alerts",
-      "Hand-built SVG workflow replays — no diagram library",
+      "n8n webhook that sends visit and contact-click alerts to Telegram",
+      "Workflow replays drawn in plain SVG, without a diagram library",
     ],
     stack: ["nextjs", "react", "typescript", "tailwind", "github-actions", "n8n", "telegram", "webhooks"],
     link: "https://github.com/Irrelevantmofo/portfolio",

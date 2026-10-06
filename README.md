@@ -1,4 +1,4 @@
-# Joshua Fabricante — Portfolio
+# Joshua Fabricante: Portfolio
 
 Full-stack Next.js engineer who builds production web apps **and** the AI automation systems around them.
 
@@ -6,11 +6,11 @@ Full-stack Next.js engineer who builds production web apps **and** the AI automa
 
 ## Stack
 
-- Next.js 16 (App Router) with `output: "export"` — fully static, deployed to GitHub Pages
+- Next.js 16 (App Router) with `output: "export"`, fully static and deployed to GitHub Pages
 - React 19, TypeScript, Tailwind CSS v4 (tokens in `app/globals.css`)
 - Animations: CSS + SVG first, plain Web APIs (IntersectionObserver, WAAPI) for interaction;
   Motion is loaded lazily, only for the score-gauge demo
-- No diagram library — the hero graph and the Automation Lab replays are hand-built SVG
+- No diagram library. The hero graph and the Automation Lab replays are hand-built SVG
 
 ## Where things live
 
@@ -19,7 +19,7 @@ Full-stack Next.js engineer who builds production web apps **and** the AI automa
 | `data/projects.ts` | Every project, incl. case-study copy (`featured`, `caseStudy`) |
 | `data/tools.ts` | Tool registry; "used in" is derived from each project's `stack` |
 | `data/flows.ts` | Workflow diagrams + replay steps (**demo data only**) |
-| `data/site.ts` | Contact links, stats, timeline — `TODO(Joshua)` items live here |
+| `data/site.ts` | Contact links, stats and timeline (open `TODO(Joshua)` items live here) |
 | `components/hero/` | Live system graph |
 | `components/flow/` | `FlowCanvas` (static diagram) + `FlowReplay` (Run button, log) |
 | `app/work/[slug]/` | Case-study pages (one per featured project) |
@@ -39,7 +39,7 @@ node scripts/make-og.mjs           # regenerate public/og.png
 
 ## Résumé
 
-Drop the PDF at `public/resume.pdf` and rebuild — the "Download résumé" buttons appear
+Drop the PDF at `public/resume.pdf` and rebuild. The "Download résumé" buttons appear
 automatically (`next.config.ts` checks for the file). It's publicly downloadable and stays in git
 history, so export it **without** phone number or home address.
 

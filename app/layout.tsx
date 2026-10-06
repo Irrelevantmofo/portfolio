@@ -21,7 +21,7 @@ const jetbrains = JetBrains_Mono({
   preload: false,
 });
 
-const title = "Joshua Fabricante — Full-Stack Next.js & AI Automation Engineer";
+const title = "Joshua Fabricante | Full-Stack Next.js & AI Automation Engineer";
 const description =
   "Full-stack Next.js engineer shipping production web apps on AWS Serverless and Supabase, plus the n8n pipelines and AI automation that run the business.";
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: "./",
     siteName: "Joshua Fabricante",
     type: "website",
-    images: [{ url: "og.png", width: 1200, height: 630, alt: "Joshua Fabricante — Full-Stack & AI Automation" }],
+    images: [{ url: "og.png", width: 1200, height: 630, alt: "Joshua Fabricante, Full-Stack Next.js & AI Automation Engineer" }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["og.png"] },
 };

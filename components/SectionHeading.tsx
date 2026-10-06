@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 interface SectionHeadingProps {
-  index: string; // "03"
+  index?: string; // "03"
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
@@ -13,7 +13,7 @@ export default function SectionHeading({ index, eyebrow, title, intro, id, as: T
   return (
     <div className="mb-10 max-w-2xl">
       <p className="mb-3 font-mono text-xs tracking-wide text-accent" aria-hidden="true">
-        {`// ${index} — ${eyebrow}`}
+        {index ? `// ${index} · ${eyebrow}` : `// ${eyebrow}`}
       </p>
       <Tag
         id={id}

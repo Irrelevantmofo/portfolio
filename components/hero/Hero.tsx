@@ -4,7 +4,7 @@ import CopyEmailButton from "@/components/CopyEmailButton";
 import { asset } from "@/lib/asset";
 import { links, person, stats } from "@/data/site";
 
-const headline = "I build the web app — and the automations that run the business behind it.";
+const headline = "I build web apps and the automations that run the business behind them.";
 
 const secondaryBtn =
   "inline-flex items-center gap-2 rounded-lg border border-line-strong px-5 py-3 text-sm font-medium text-fg transition-colors hover:border-fg/40 hover:bg-surface";
@@ -35,8 +35,8 @@ export default function Hero() {
           </h1>
 
           <p className="fade-up mt-6 max-w-xl text-lg leading-relaxed text-muted" style={{ "--d": "350ms" } as React.CSSProperties}>
-            {stats.years}+ years shipping production apps with React, Next.js, AWS Serverless and Supabase — plus
-            n8n pipelines and AI agents that call leads, write content and sync your CRM.
+            {stats.years}+ years shipping production apps with React, Next.js, AWS Serverless and Supabase. I also
+            build n8n pipelines and AI agents that call leads, write content and keep your CRM up to date.
           </p>
 
           <div className="fade-up mt-9 flex flex-wrap items-center gap-3" style={{ "--d": "450ms" } as React.CSSProperties}>

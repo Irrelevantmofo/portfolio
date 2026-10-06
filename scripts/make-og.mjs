@@ -26,8 +26,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <text x="72" y="120" font-family="Consolas, monospace" font-size="22" fill="${lime}">// Full-Stack Engineer · Next.js · AI Automation</text>
   <text x="72" y="215" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" fill="#ECEEF3" letter-spacing="-2">Joshua</text>
   <text x="72" y="290" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" fill="#ECEEF3" letter-spacing="-2">Fabricante</text>
-  <text x="72" y="360" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" fill="#A0A6B4">I build the web app — and the</text>
-  <text x="72" y="396" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" fill="#A0A6B4">automations that run the business.</text>
+  <text x="72" y="360" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" fill="#A0A6B4">I build web apps and the automations</text>
+  <text x="72" y="396" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" fill="#A0A6B4">that run the business behind them.</text>
   <text x="72" y="540" font-family="Consolas, monospace" font-size="18" fill="#7F8698">Next.js · AWS Serverless · Supabase · n8n</text>
   ${edge("M815 210H865")}
   ${edge("M960 242V328")}

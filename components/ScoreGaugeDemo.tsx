@@ -90,7 +90,7 @@ export default function ScoreGaugeDemo() {
         </div>
       </div>
       <figcaption className="mt-5 border-t border-line pt-3 font-mono text-[11px] text-subtle">
-        Demo data — not financial advice. The real simulator works from the visitor&apos;s parsed credit report.
+        Demo data, not financial advice. The real simulator works from the visitor&apos;s own credit report.
       </figcaption>
     </figure>
   );

@@ -86,7 +86,7 @@ const pillars = [
   {
     title: "Web Apps",
     stack: "Next.js · React · TypeScript",
-    body: "Production front ends and full-stack apps — CMS-driven corporate sites, SaaS portals and AI-powered tools that people actually use.",
+    body: "Front ends and full-stack apps in production: corporate sites on a headless CMS, SaaS portals and AI-powered tools.",
     proof: [
       { href: "/work/credit-score-simulator/", label: "Credit Score Simulator" },
       { href: "/#more-work", label: "5 Next.js + Sanity sites" },
@@ -96,14 +96,14 @@ const pillars = [
   {
     title: "Cloud Backends",
     stack: "AWS Serverless · Supabase · Postgres · Prisma · GraphQL",
-    body: "APIs and data layers that scale without babysitting servers: Lambda + DynamoDB, Supabase auth/storage, typed GraphQL.",
+    body: "APIs and data layers that scale without managing servers: Lambda and DynamoDB, Supabase auth and storage, typed GraphQL.",
     proof: [{ href: "/work/nessy-application/", label: "Nessy Cloud" }],
     Illo: CloudIllo,
   },
   {
     title: "AI & Automation",
     stack: "n8n · LLMs · Voice AI · CRM",
-    body: "Pipelines that call leads, write content and keep the CRM in sync — with locks, retries and logs so they hold up in production.",
+    body: "Pipelines that call leads, write content and keep the CRM in sync. I build in locks, retries and logging so they keep running when something fails.",
     proof: [
       { href: "/work/ai-dialer/", label: "AI Outbound Dialer" },
       { href: "/work/content-engine/", label: "Content Engine" },
@@ -119,7 +119,7 @@ export default function Pillars() {
         index="01"
         eyebrow="What I build"
         id="what-i-build-title"
-        title="One engineer for the app, the backend and the automations around it."
+        title="I work across the front end, the backend and the automation layer."
       />
       <div className="grid gap-4 md:grid-cols-3">
         {pillars.map(({ title, stack, body, proof, Illo }) => (

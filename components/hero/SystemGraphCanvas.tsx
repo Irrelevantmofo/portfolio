@@ -140,7 +140,7 @@ function Graph({
           <a
             key={n.id}
             href={n.href}
-            aria-label={`${n.label} · ${n.sub} — used in ${n.usedIn.join(", ")}. Jump to case study.`}
+            aria-label={`${n.label} (${n.sub}), used in ${n.usedIn.join(", ")}. Jump to case study.`}
             onPointerEnter={() => setHover(n.id)}
             onFocus={() => setHover(n.id)}
             onBlur={() => setHover(null)}

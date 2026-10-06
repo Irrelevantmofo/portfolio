@@ -46,8 +46,8 @@ export default function Home() {
           index="02"
           eyebrow="Featured work"
           id="work-title"
-          title="Four systems, start to finish."
-          intro="Two production web apps and two automation systems — each with the problem, what I built, the architecture and the results."
+          title="Four projects, written up in detail."
+          intro="Two web apps and two automation systems I built and run in production. Each write-up covers the problem, what I built, the architecture and the results."
         />
         <div className="grid gap-5 md:grid-cols-2">
           {featuredProjects.map((p, i) => (
@@ -67,8 +67,8 @@ export default function Home() {
             index="03"
             eyebrow="Automation Lab"
             id="lab-title"
-            title="Press run. Watch a real workflow execute."
-            intro="Simplified, hand-built replays of n8n workflows I run in production — queues, locks, retry ladders and human-in-the-loop approvals. Demo data only."
+            title="Replays of workflows I run in production"
+            intro="These are simplified versions of real n8n workflows, redrawn by hand. Press Run to step through an execution and follow the log. The data is made up, but the logic matches the real thing."
           />
           <AutomationLab flows={lab} />
         </div>
@@ -80,13 +80,13 @@ export default function Home() {
             index="04"
             eyebrow="Toolbox"
             id="toolbox-title"
-            title="Every tool, linked to the work that uses it."
+            title="Tools I use, and where I've used them"
           />
           <Toolbox />
         </section>
 
         <section id="more-work" aria-labelledby="more-work-title" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-24 sm:px-6">
-          <SectionHeading index="05" eyebrow="More work" id="more-work-title" title="Sites, apps and automations." />
+          <SectionHeading index="05" eyebrow="More work" id="more-work-title" title="More projects" />
           <WorkGrid
             hideFeaturedByDefault
             toolNames={toolNames}
@@ -103,7 +103,7 @@ export default function Home() {
 
       <section id="experience" aria-labelledby="experience-title" className="border-t border-line py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <SectionHeading index="06" eyebrow="Experience" id="experience-title" title="Where I've been building." />
+          <SectionHeading index="06" eyebrow="Experience" id="experience-title" title="Experience" />
           <Timeline entries={timeline} />
         </div>
       </section>
@@ -111,18 +111,18 @@ export default function Home() {
       <section id="about" aria-labelledby="about-title" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <SectionHeading index="07" eyebrow="About" id="about-title" title="Rough idea in. Fast, reliable, measurable out." />
+            <SectionHeading index="07" eyebrow="About" id="about-title" title="About me" />
             <div className="space-y-4 text-base leading-relaxed text-muted">
               <p>
                 I&apos;m Joshua, a full-stack engineer from Iligan City, Philippines, with an IT foundation from MSU-IIT
                 and {stats.years}+ years building for the web.
               </p>
               <p>
-                I&apos;ve shipped corporate sites and SaaS apps for agencies and international clients (largely in
-                Germany), and today I build AI-powered tools and automation systems — from credit-analysis apps to
-                voice-AI dialers — for a US credit &amp; business-funding firm.
+                I&apos;ve shipped corporate sites and SaaS apps for agencies and international clients, mostly in
+                Germany. These days I also build AI tools and automation systems for a US credit and business-funding
+                firm, from a credit report analyzer to an AI voice dialer.
               </p>
-              <p>I like taking a rough idea or prototype and turning it into something fast, reliable and measurable.</p>
+              <p>I enjoy taking a rough idea or a half-working prototype and turning it into something fast that keeps working.</p>
             </div>
           </div>
           <aside className="rounded-2xl border border-line bg-surface p-6">
@@ -156,10 +156,10 @@ export default function Home() {
         <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_65%)]" />
         <div className="relative mx-auto max-w-3xl px-4 py-28 text-center sm:px-6">
           <p className="mb-4 font-mono text-xs text-accent" aria-hidden="true">
-            {"// 08 — Contact"}
+            {"// 08 · Contact"}
           </p>
           <h2 id="contact-title" className="mb-5 text-4xl font-semibold tracking-tight text-balance text-fg sm:text-5xl">
-            Have an idea, prototype or slow system? Let&apos;s build it.
+            Have an idea, a prototype or a slow system? Let&apos;s talk.
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-muted">
             {person.availability} · {person.timezone}.

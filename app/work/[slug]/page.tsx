@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: p.outcome,
     alternates: { canonical: `work/${p.slug}/` },
     openGraph: {
-      title: `${p.title} — case study`,
+      title: `${p.title} (case study)`,
       description: p.outcome,
       url: `work/${p.slug}/`,
       images: [{ url: "og.png", width: 1200, height: 630 }],
@@ -153,7 +153,7 @@ export default async function CaseStudyPage({ params }: Props) {
             // No confirmed metrics yet — say what shipped instead of inventing numbers.
             // TODO(Joshua): add confirmed impact numbers for this project, if any.
             <p className="max-w-3xl text-base leading-relaxed text-muted">
-              Live in production{p.link ? " — see it running at the link above" : ""}. {p.outcome}
+              It&apos;s live in production{p.link ? ", and you can try it at the link above" : ""}. I don&apos;t have numbers I can share for this one yet.
             </p>
           )}
         </Block>

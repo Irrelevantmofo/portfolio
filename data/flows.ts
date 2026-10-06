@@ -55,7 +55,7 @@ export const flows: Flow[] = [
   {
     id: "ai-dialer",
     title: "AI Outbound Dialer",
-    blurb: "GHL tag → queue → lock → 50 concurrent AI calls → poll every 30s → loop until the queue is empty.",
+    blurb: "A GHL tag queues the leads and a lock stops runs from overlapping. The dialer calls 50 at a time and checks every 30s until the queue is empty.",
     projectSlug: "ai-dialer",
     viewBox: VB,
     nodes: [
@@ -101,7 +101,7 @@ export const flows: Flow[] = [
   {
     id: "content-engine",
     title: "Content Repurposing Engine",
-    blurb: "One source in → fact extraction → per-asset drafts, validated with a 3-attempt retry ladder, approved by email.",
+    blurb: "Pulls facts from one source, drafts each asset, retries failed checks up to 3 times, then emails the drafts for approval.",
     projectSlug: "content-engine",
     viewBox: VB,
     nodes: [
@@ -147,7 +147,7 @@ export const flows: Flow[] = [
   {
     id: "podcast-outreach",
     title: "Podcast Outreach",
-    blurb: "Weekday sender with +4d / +6d follow-ups, and a reply watcher that classifies, tags in GHL and alerts the owner.",
+    blurb: "Sends pitches on weekdays with follow-ups after 4 and 6 days. A reply watcher sorts the responses, tags them in GHL and alerts the owner.",
     projectSlug: "podcast-outreach",
     viewBox: VB,
     nodes: [
@@ -187,7 +187,7 @@ export const flows: Flow[] = [
   {
     id: "credit-analyzer",
     title: "Credit Report Analyzer",
-    blurb: "PDF in → parsed → AI metrics → simulator + roadmap → lead synced to the CRM.",
+    blurb: "The report is parsed, an LLM extracts the key metrics, the simulator and roadmap are built from them, and the lead is synced to the CRM.",
     projectSlug: "credit-score-simulator",
     viewBox: VB,
     nodes: [
