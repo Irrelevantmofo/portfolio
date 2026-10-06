@@ -1,7 +1,7 @@
 // n8n production webhook that pings you (via Telegram) about portfolio
-// activity. The n8n workflow must be set to Active for this to fire.
-export const WEBHOOK_URL =
-  "";
+// activity. Injected at build time from the NOTIFY_WEBHOOK_URL GitHub Actions
+// secret — never commit the URL. Unset (local dev, forks) → notify() is a no-op.
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_NOTIFY_WEBHOOK_URL ?? "";
 
 // Per-session ID held in memory only — never written to localStorage/cookies,
 // so it's not persistent tracking and needs no consent banner (GDPR/ePrivacy).
@@ -28,9 +28,11 @@ function getSessionId(): string {
  * CORS-safelisted and lets n8n parse structured fields
  * ($json.body.source / $json.body.timestamp / $json.body.visitorId).
  *
- * `source` identifies the event, e.g. "home-visit", "navbar", "hero-cta".
+ * `source` identifies the event, e.g. "home-visit", "navbar", "contact-click:email".
  */
 export function notify(source: string) {
+  // An empty URL would make sendBeacon POST to the current page.
+  if (!WEBHOOK_URL) return;
   try {
     const payload = new URLSearchParams({
       source,

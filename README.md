@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Joshua Fabricante — Portfolio
 
-## Getting Started
+Full-stack Next.js engineer who builds production web apps **and** the AI automation systems around them.
 
-First, run the development server:
+**Live:** https://irrelevantmofo.github.io/portfolio/
+
+## Stack
+
+- Next.js 16 (App Router) with `output: "export"` — fully static, deployed to GitHub Pages
+- React 19, TypeScript, Tailwind CSS v4 (tokens in `app/globals.css`)
+- Animations: CSS + SVG first, plain Web APIs (IntersectionObserver, WAAPI) for interaction;
+  Motion is loaded lazily, only for the score-gauge demo
+- No diagram library — the hero graph and the Automation Lab replays are hand-built SVG
+
+## Where things live
+
+| Path | What |
+|---|---|
+| `data/projects.ts` | Every project, incl. case-study copy (`featured`, `caseStudy`) |
+| `data/tools.ts` | Tool registry; "used in" is derived from each project's `stack` |
+| `data/flows.ts` | Workflow diagrams + replay steps (**demo data only**) |
+| `data/site.ts` | Contact links, stats, timeline — `TODO(Joshua)` items live here |
+| `components/hero/` | Live system graph |
+| `components/flow/` | `FlowCanvas` (static diagram) + `FlowReplay` (Run button, log) |
+| `app/work/[slug]/` | Case-study pages (one per featured project) |
+| `lib/icon-registry.mjs` | Tool icons → `public/icons.svg` sprite (generated, git-ignored) |
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev            # localhost:3000 (no basePath in dev)
+npm run build          # static export to out/ (basePath /portfolio)
+npm run lint
+npm run typecheck
+npm run optimize-images            # PNG/JPG in public/images → ≤1600px WebP
+node scripts/make-thumbs.mjs       # 800px variants for srcset
+node scripts/make-og.mjs           # regenerate public/og.png
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Résumé
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Drop the PDF at `public/resume.pdf` and rebuild — the "Download résumé" buttons appear
+automatically (`next.config.ts` checks for the file). It's publicly downloadable and stays in git
+history, so export it **without** phone number or home address.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Visit notifications
 
-## Learn More
+`lib/notify.ts` pings an n8n webhook (→ Telegram) on visits and contact clicks. The URL comes
+from `NEXT_PUBLIC_NOTIFY_WEBHOOK_URL`, injected in CI from the `NOTIFY_WEBHOOK_URL` repository
+secret. When it's unset (local dev, forks), `notify()` does nothing. Never commit the URL.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`.github/workflows/deploy.yml` lints, type-checks and builds on every push and PR; only pushes to
+`main` deploy to Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Building on Windows: Next 16.2 writes route-segment prefetch files as nested folders there, so
+> client prefetches 404 locally (navigation still works). CI builds on Linux, where they're correct.

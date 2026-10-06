@@ -1,148 +1,172 @@
-import TrackedProjectsLink from "@/components/TrackedProjectsLink";
 import PageViewTracker from "@/components/PageViewTracker";
+import Hero from "@/components/hero/Hero";
+import ProofBar from "@/components/ProofBar";
+import Pillars from "@/components/Pillars";
+import SectionHeading from "@/components/SectionHeading";
+import CaseStudyCard from "@/components/work/CaseStudyCard";
+import ProjectCard from "@/components/work/ProjectCard";
+import WorkGrid from "@/components/work/WorkGrid";
+import { ToolFilterProvider } from "@/components/work/ToolFilter";
+import Toolbox from "@/components/toolbox/Toolbox";
+import AutomationLab, { type LabFlow } from "@/components/AutomationLab";
+import Timeline from "@/components/Timeline";
+import ContactLinks from "@/components/ContactLinks";
+import { featuredProjects, getProject, projects } from "@/data/projects";
+import { labFlows } from "@/data/flows";
+import { tools } from "@/data/tools";
+import { person, stats, timeline } from "@/data/site";
+import { asset } from "@/lib/asset";
 
-const skills = [
-  "Next.js",
-  "React",
-  "JavaScript",
-  "n8n",
-  "Puppeteer",
-  "Prisma",
-  "TypeScript",
-  "Laravel",
-  "GraphQL",
-  "Sanity",
+const lab: LabFlow[] = labFlows.map((f) => {
+  const p = getProject(f.projectSlug);
+  return p?.featured
+    ? { ...f, href: `/work/${p.slug}/`, hrefLabel: "Read the case study" }
+    : { ...f, href: `/work/#${f.projectSlug}`, hrefLabel: "See the project" };
+});
+
+const toolNames = Object.fromEntries(tools.map((t) => [t.id, t.name]));
+
+const facts = [
+  { k: "Based in", v: "Iligan City, PH · UTC+8" }, // TODO(Joshua): note US-hours overlap availability
+  { k: "Education", v: "Bachelor's degree, MSU-IIT" },
+  { k: "English", v: "C2" },
+  { k: "Looking for", v: "Full-time remote" },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-950">
+    <>
       <PageViewTracker source="home-visit" />
-      {/* Hero Section with Gradient */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-900/20 rounded-full blur-3xl opacity-30"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl opacity-30"></div>
-        </div>
+      <Hero />
+      <ProofBar />
+      <Pillars />
 
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          {/* Profile Picture */}
-          <div className="mb-12 flex justify-center">
-            <div className="relative w-40 h-40">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-lg opacity-75"></div>
-              <img
-                src={`${process.env.NODE_ENV === "production" ? "/portfolio" : ""}/images/profile.jpg`}
-                alt="Joshua Fabricante"
-                className="absolute inset-0 rounded-full object-cover ring-4 ring-gray-900"
-              />
-            </div>
-          </div>
-
-          {/* Name */}
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4">
-            Joshua Irving B. Fabricante
-          </h1>
-
-          {/* Title */}
-          <p className="text-xl sm:text-2xl text-indigo-400 font-semibold mb-6">
-            Freelance Full-Stack Developer 
-          </p>
-
-          {/* Bio */}
-          <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-            A Philippine-based web developer building modern web applications for clients worldwide.
-            Specialized in full-stack development with a focus on scalability and user experience.
-          </p>
-
-          <p className="text-base text-gray-400 mb-10 leading-relaxed">
-          I fix technical challenges that slow your business down. From fast Next.js web applications to automated n8n workflows and AWS architectures, 
-          I build the high-performance systems your company needs to scale.
-          </p>
-
-          {/* Skills - infinite single-line marquee */}
-          <div className="mb-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex w-max animate-marquee">
-              {/* Two identical copies so the -50% loop is seamless */}
-              {[...skills, ...skills].map((skill, i) => (
-                <span
-                  key={i}
-                  className="mr-3 whitespace-nowrap px-4 py-2 bg-indigo-900/40 text-indigo-300 rounded-full text-sm font-medium border border-indigo-700/50"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center gap-4 mb-10">
-            <a
-              href="https://twitter.com/Joshua_irvingF"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
-              aria-label="Twitter"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7s1.1 1 2 1z" />
-              </svg>
-            </a>
-            <a
-              href="https://www.facebook.com/Joshua.starkiller115"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
-              aria-label="Facebook"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 011-1h3z" />
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/joshuafabricante"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
-              aria-label="LinkedIn"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <a
-              href="https://www.instagram.com/joshuanderful"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:bg-indigo-900/40 hover:text-indigo-400 transition"
-              aria-label="Instagram"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" strokeWidth="2" />
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" strokeWidth="2" />
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
-              </svg>
-            </a>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <TrackedProjectsLink
-              source="hero-cta"
-              className="inline-block px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition shadow-lg hover:shadow-xl"
-            >
-              View My Projects
-            </TrackedProjectsLink>
-            <a
-              href="mailto:joshua.starkiller115@gmail.com"
-              className="inline-block px-8 py-3 border-2 border-indigo-400 text-indigo-400 hover:bg-indigo-900/20 font-semibold rounded-lg transition"
-            >
-              Get In Touch
-            </a>
-          </div>
+      <section id="work" aria-labelledby="work-title" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <SectionHeading
+          index="02"
+          eyebrow="Featured work"
+          id="work-title"
+          title="Four systems, start to finish."
+          intro="Two production web apps and two automation systems — each with the problem, what I built, the architecture and the results."
+        />
+        <div className="grid gap-5 md:grid-cols-2">
+          {featuredProjects.map((p, i) => (
+            <CaseStudyCard key={p.slug} project={p} index={i} />
+          ))}
         </div>
       </section>
-    </div>
+
+      <section
+        id="automation-lab"
+        aria-labelledby="lab-title"
+        className="relative border-y border-line bg-surface/30 py-24"
+      >
+        <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionHeading
+            index="03"
+            eyebrow="Automation Lab"
+            id="lab-title"
+            title="Press run. Watch a real workflow execute."
+            intro="Simplified, hand-built replays of n8n workflows I run in production — queues, locks, retry ladders and human-in-the-loop approvals. Demo data only."
+          />
+          <AutomationLab flows={lab} />
+        </div>
+      </section>
+
+      <ToolFilterProvider>
+        <section id="toolbox" aria-labelledby="toolbox-title" className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+          <SectionHeading
+            index="04"
+            eyebrow="Toolbox"
+            id="toolbox-title"
+            title="Every tool, linked to the work that uses it."
+          />
+          <Toolbox />
+        </section>
+
+        <section id="more-work" aria-labelledby="more-work-title" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-24 sm:px-6">
+          <SectionHeading index="05" eyebrow="More work" id="more-work-title" title="Sites, apps and automations." />
+          <WorkGrid
+            hideFeaturedByDefault
+            toolNames={toolNames}
+            items={projects.map((p) => ({
+              slug: p.slug,
+              kind: p.kind,
+              featured: !!p.featured,
+              stack: p.stack,
+              card: <ProjectCard project={p} />,
+            }))}
+          />
+        </section>
+      </ToolFilterProvider>
+
+      <section id="experience" aria-labelledby="experience-title" className="border-t border-line py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <SectionHeading index="06" eyebrow="Experience" id="experience-title" title="Where I've been building." />
+          <Timeline entries={timeline} />
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <SectionHeading index="07" eyebrow="About" id="about-title" title="Rough idea in. Fast, reliable, measurable out." />
+            <div className="space-y-4 text-base leading-relaxed text-muted">
+              <p>
+                I&apos;m Joshua, a full-stack engineer from Iligan City, Philippines, with an IT foundation from MSU-IIT
+                and {stats.years}+ years building for the web.
+              </p>
+              <p>
+                I&apos;ve shipped corporate sites and SaaS apps for agencies and international clients (largely in
+                Germany), and today I build AI-powered tools and automation systems — from credit-analysis apps to
+                voice-AI dialers — for a US credit &amp; business-funding firm.
+              </p>
+              <p>I like taking a rough idea or prototype and turning it into something fast, reliable and measurable.</p>
+            </div>
+          </div>
+          <aside className="rounded-2xl border border-line bg-surface p-6">
+            <div className="mb-6 flex items-center gap-4">
+              <img
+                src={asset("/images/profile.webp")}
+                alt={`Portrait of ${person.name}`}
+                width={400}
+                height={400}
+                loading="lazy"
+                className="size-16 rounded-full object-cover ring-2 ring-line-strong"
+              />
+              <div>
+                <p className="font-semibold text-fg">{person.fullName}</p>
+                <p className="text-sm text-muted">{person.jobTitle}</p>
+              </div>
+            </div>
+            <dl className="divide-y divide-line text-sm">
+              {facts.map((f) => (
+                <div key={f.k} className="flex justify-between gap-4 py-2.5">
+                  <dt className="text-subtle">{f.k}</dt>
+                  <dd className="text-right text-fg">{f.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden border-t border-line">
+        <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_65%)]" />
+        <div className="relative mx-auto max-w-3xl px-4 py-28 text-center sm:px-6">
+          <p className="mb-4 font-mono text-xs text-accent" aria-hidden="true">
+            {"// 08 — Contact"}
+          </p>
+          <h2 id="contact-title" className="mb-5 text-4xl font-semibold tracking-tight text-balance text-fg sm:text-5xl">
+            Have an idea, prototype or slow system? Let&apos;s build it.
+          </h2>
+          <p className="mx-auto mb-10 max-w-xl text-muted">
+            {person.availability} · {person.timezone}.
+          </p>
+          <ContactLinks />
+        </div>
+      </section>
+    </>
   );
 }

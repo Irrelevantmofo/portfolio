@@ -1,44 +1,281 @@
 @import "tailwindcss";
 
+/* ── Design tokens ─────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #0a0b0f;
+  --color-surface: #12141a;
+  --color-surface-2: #1a1d25;
+  --color-line: #262a35;
+  --color-line-strong: #353a48;
+  --color-fg: #eceef3;
+  --color-muted: #a0a6b4;
+  --color-subtle: #7f8698;
+  --color-accent: #c6f432;
+  --color-accent-dim: #8fb11f;
+  --color-cyan: #5eead4;
+  --color-warn: #fbbf24;
+  --color-danger: #f87171;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @layer base {
-  body {
-    @apply bg-gray-950 text-gray-50;
-  }
-
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* sticky nav */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-fg);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
-/* Smooth transitions for interactions */
-img {
-  @apply transition-transform duration-300;
+/* ── Utilities ─────────────────────────────────────────────────────────── */
+@utility dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.07) 1px, transparent 0);
+  background-size: 22px 22px;
 }
 
-/* Infinite, seamless single-line marquee (skills carousel).
-   The track holds two identical copies of the content; translating it by -50%
-   lands the second copy exactly where the first started, so the loop has no
-   visible seam. `linear` timing keeps it gliding with no easing "ticks". */
-@keyframes marquee {
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* ── Hero headline: words fade + rise, staggered via --i ──────────────── */
+/* Never fully transparent, so the H1 paints (and counts as LCP) on first
+   render instead of after the stagger finishes. */
+.word-rise {
+  display: inline-block;
+  animation: word-rise-lcp 0.6s var(--ease-out-quint) both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+@keyframes word-rise-lcp {
   from {
-    transform: translateX(0);
+    opacity: 0.2;
+    transform: translateY(0.35em);
+  }
+}
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+}
+
+
+.fade-up {
+  animation: word-rise 0.6s var(--ease-out-quint) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* ── SVG edge draw-in (pathLength="1") ─────────────────────────────────── */
+.edge-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: edge-draw 0.6s var(--ease-out-quint) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes edge-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Availability dot */
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulse-ring 2s var(--ease-out-quint) infinite;
+}
+@keyframes pulse-ring {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
   }
   to {
-    transform: translateX(-50%);
+    transform: scale(2.6);
+    opacity: 0;
   }
 }
 
-.animate-marquee {
-  animation: marquee 100s linear infinite;
+/* ── Pillar micro-illustrations: play while [data-active] ─────────────── */
+.illo * {
+  animation-play-state: paused !important;
+}
+[data-active] .illo * {
+  animation-play-state: running !important;
+}
+.illo-fill {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: illo-fill 2.4s var(--ease-out-quint) infinite;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes illo-fill {
+  0% {
+    transform: scaleX(0.15);
+    opacity: 0.35;
+  }
+  45%,
+  80% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.35;
+  }
+}
+.illo-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: illo-pulse 1.8s ease-in-out infinite;
+}
+@keyframes illo-pulse {
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+.illo-blink {
+  animation: illo-blink 2.4s steps(1) infinite;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes illo-blink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+.illo-travel {
+  animation: illo-travel 2.2s var(--ease-out-quint) infinite;
+}
+@keyframes illo-travel {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(var(--dx1));
+  }
+  55% {
+    transform: translateX(var(--dx1));
+  }
+  90% {
+    transform: translateX(var(--dx2));
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(var(--dx2));
+    opacity: 0;
+  }
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+/* ── Case-study card: Ken Burns + chip stagger + pointer spotlight ─────── */
+.card-spotlight {
+  background-image: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 0%),
+    rgb(198 244 50 / 0.08),
+    transparent 60%
+  );
+}
+.kenburns {
+  transition: transform 6s var(--ease-out-quint);
+}
+.group:hover .kenburns,
+.group:focus-visible .kenburns {
+  transform: scale(1.04);
+}
+.chip-stagger > * {
+  transition:
+    transform 0.45s var(--ease-out-quint),
+    opacity 0.45s var(--ease-out-quint);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+@media (hover: hover) {
+  .group:not(:hover):not(:focus-within) .chip-stagger > * {
+    transform: translateY(4px);
+    opacity: 0.55;
+  }
 }
 
-/* Respect users who prefer reduced motion. */
+/* ── Timeline entries: hidden only once JS can reveal them ───────────── */
+.js .tl-entry {
+  --from: -32px;
+  opacity: 0;
+  transform: translateX(var(--from));
+  transition:
+    opacity 0.55s var(--ease-out-quint),
+    transform 0.55s var(--ease-out-quint);
+}
+@media (min-width: 768px) {
+  .js .tl-entry.tl-right {
+    --from: 32px;
+  }
+}
+.js .tl-entry[data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── View transition: card image → case-study hero ─────────────────────── */
+::view-transition-group(.morph) {
+  animation-duration: 450ms;
+  animation-timing-function: var(--ease-out-quint);
+}
+
+/* ── Reduced motion: final state, no movement ──────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .packet,
+  .pulse-dot::after {
+    display: none;
+  }
+  .js .tl-entry {
+    opacity: 1;
+    transform: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

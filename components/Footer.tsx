@@ -1,9 +1,25 @@
+import Link from "next/link";
+import { person } from "@/data/site";
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 border-t border-gray-800 py-8 mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-gray-400 text-sm">
-          Developed by <span className="font-semibold text-white">Joshua Fabricante</span>
+    <footer className="border-t border-line">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>
+          <span className="font-medium text-fg">{person.fullName}</span> · {person.location}
+        </p>
+        <p className="font-mono text-xs">
+          Next.js 16 static export ·{" "}
+          <Link href="/work/" className="underline decoration-line-strong underline-offset-4 hover:text-fg">
+            all work
+          </Link>{" "}
+          ·{" "}
+          <a
+            href="https://github.com/Irrelevantmofo/portfolio"
+            className="underline decoration-line-strong underline-offset-4 hover:text-fg"
+          >
+            source
+          </a>
         </p>
       </div>
     </footer>
