@@ -26,7 +26,7 @@ export default function CaseMedia({
           <img
             src={asset(p.image.src)}
             srcSet={screenshotSrcSet(p.image)}
-            sizes={priority ? "(min-width: 1024px) 976px, 100vw" : "(min-width: 768px) 560px, 100vw"}
+            sizes={priority ? "(min-width: 1700px) 1600px, 100vw" : "(min-width: 768px) 50vw, 100vw"}
             alt={p.image.alt}
             width={p.image.width}
             height={p.image.height}

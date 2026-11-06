@@ -12,7 +12,7 @@ const nav = [
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/70 bg-ink/80 backdrop-blur-md">
-      <nav aria-label="Primary" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <nav aria-label="Primary" className="site-container flex h-16 items-center justify-between">
         <Link href="/" className="group flex items-center gap-2 font-mono text-sm text-fg">
           <span className="grid size-8 place-items-center rounded-md border border-line-strong bg-surface font-semibold text-accent transition group-hover:border-accent">
             JF

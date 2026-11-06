@@ -114,7 +114,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section id="what-i-build" aria-labelledby="what-i-build-title" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <section id="what-i-build" aria-labelledby="what-i-build-title" className="site-container py-24">
       <SectionHeading
         index="01"
         eyebrow="What I build"

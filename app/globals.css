@@ -55,6 +55,22 @@
   background-size: 22px 22px;
 }
 
+/* Full-width page container: spans the viewport, with gutters that grow on
+   wider screens. Long-form text keeps its own max-w-* measure. */
+@utility site-container {
+  width: 100%;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 96rem) {
+    padding-inline: 4rem;
+  }
+}
+
 @utility text-balance {
   text-wrap: balance;
 }

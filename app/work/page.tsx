@@ -22,7 +22,7 @@ const toolOptions = tools
 
 export default function WorkPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div className="site-container py-20">
       <PageViewTracker source="work-visit" />
       <SectionHeading
         as="h1"

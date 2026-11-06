@@ -18,7 +18,7 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
           <img
             src={asset(p.image.src)}
             srcSet={screenshotSrcSet(p.image)}
-            sizes="(min-width: 1024px) 370px, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             alt={p.image.alt}
             width={p.image.width}
             height={p.image.height}

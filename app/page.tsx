@@ -41,15 +41,15 @@ export default function Home() {
       <ProofBar />
       <Pillars />
 
-      <section id="work" aria-labelledby="work-title" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <section id="work" aria-labelledby="work-title" className="site-container py-24">
         <SectionHeading
           index="02"
           eyebrow="Featured work"
           id="work-title"
-          title="Four projects, written up in detail."
-          intro="Two web apps and two automation systems I built and run in production. Each write-up covers the problem, what I built, the architecture and the results."
+          title="Five projects, written up in detail."
+          intro="Two web apps and three automation systems I built for real clients. Each write-up covers the problem, what I built, the architecture and the results."
         />
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2 md:max-xl:[&>:last-child:nth-child(odd)]:col-span-2 xl:grid-cols-6 xl:*:col-span-2 xl:[&>:nth-child(-n+2)]:col-span-3">
           {featuredProjects.map((p, i) => (
             <CaseStudyCard key={p.slug} project={p} index={i} />
           ))}
@@ -62,12 +62,12 @@ export default function Home() {
         className="relative border-y border-line bg-surface/30 py-24"
       >
         <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]" />
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="site-container relative">
           <SectionHeading
             index="03"
             eyebrow="Automation Lab"
             id="lab-title"
-            title="Replays of workflows I run in production"
+            title="Replays of real workflows I built"
             intro="These are simplified versions of real n8n workflows, redrawn by hand. Press Run to step through an execution and follow the log. The data is made up, but the logic matches the real thing."
           />
           <AutomationLab flows={lab} />
@@ -75,7 +75,7 @@ export default function Home() {
       </section>
 
       <ToolFilterProvider>
-        <section id="toolbox" aria-labelledby="toolbox-title" className="mx-auto max-w-6xl px-4 pt-24 sm:px-6">
+        <section id="toolbox" aria-labelledby="toolbox-title" className="site-container pt-24">
           <SectionHeading
             index="04"
             eyebrow="Toolbox"
@@ -85,7 +85,7 @@ export default function Home() {
           <Toolbox />
         </section>
 
-        <section id="more-work" aria-labelledby="more-work-title" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-24 sm:px-6">
+        <section id="more-work" aria-labelledby="more-work-title" className="site-container scroll-mt-20 py-24">
           <SectionHeading index="05" eyebrow="More work" id="more-work-title" title="More projects" />
           <WorkGrid
             hideFeaturedByDefault
@@ -108,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" aria-labelledby="about-title" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <section id="about" aria-labelledby="about-title" className="site-container py-24">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <SectionHeading index="07" eyebrow="About" id="about-title" title="About me" />

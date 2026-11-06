@@ -140,7 +140,7 @@ export default function WorkGrid({ items, toolNames, hideFeaturedByDefault = fal
         )}
       </p>
 
-      <ul ref={list} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul ref={list} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {visible.map((it) => (
           <li key={it.slug} data-key={it.slug} className={clsx("rounded-xl", tool && "ring-1 ring-accent/50")}>
             {it.card}

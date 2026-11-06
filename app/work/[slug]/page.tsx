@@ -58,7 +58,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const next = featuredProjects[(i + 1) % featuredProjects.length];
 
   return (
-    <article className="mx-auto max-w-5xl px-4 pt-12 pb-20 sm:px-6">
+    <article className="site-container pt-12 pb-20">
       <PageViewTracker source={`case-study:${p.slug}`} />
       <Link href="/#work" className="font-mono text-xs text-subtle hover:text-fg">
         ← All case studies
@@ -92,7 +92,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </header>
 
-      <CaseMedia project={p} priority className="aspect-[16/9] rounded-2xl border border-line" />
+      <CaseMedia project={p} priority className="aspect-[16/9] max-w-[1600px] rounded-2xl border border-line" />
 
       <div className="mt-6">
         {/* 2. Problem */}

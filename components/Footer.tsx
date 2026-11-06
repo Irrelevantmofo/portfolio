@@ -4,7 +4,7 @@ import { person } from "@/data/site";
 export default function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div className="site-container flex flex-col gap-4 py-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between">
         <p>
           <span className="font-medium text-fg">{person.fullName}</span> · {person.location}
         </p>

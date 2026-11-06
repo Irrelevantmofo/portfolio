@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden">
       <div className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_70%_40%,black_20%,transparent_70%)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-12 pb-16 sm:px-6 md:pt-16 lg:grid-cols-[1.25fr_1fr] lg:gap-10 lg:pb-20">
+      <div className="site-container relative grid items-center gap-12 pt-12 pb-16 md:pt-16 lg:grid-cols-[1.25fr_1fr] lg:gap-10 lg:pb-20">
         <div>
           <p className="mb-4 font-mono text-xs tracking-wide text-accent">
             Full-Stack Engineer · Next.js · AI Automation

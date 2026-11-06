@@ -20,7 +20,7 @@ export interface Project {
   slug: string; // old ids kept as slugs for stability
   title: string;
   kind: ProjectKind;
-  featured?: boolean; // the 4 case studies
+  featured?: boolean; // the case studies
   wip?: boolean;
   client?: string; // "Credit CRB", "Agency client (DE)", "Personal"
   outcome: string; // one-line result
@@ -172,8 +172,63 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: "ai-video-pipeline",
+    title: "AI Video Pipeline",
+    kind: "automation",
+    featured: true,
+    client: "Credit CRB",
+    outcome: "Turns a script in a Google Sheet into a finished vertical video with voiceover, AI-generated clips and music.",
+    summary:
+      "An n8n pipeline that reads a script from a Google Sheet, records the voiceover, plans shots to its timing, generates and checks a still for every shot, animates the stills into clips and renders the final 9:16 video with Json2Video.",
+    contributions: [
+      "A Google Sheet works as the job queue: the workflow takes the next pending script, locks the row and writes the finished video link back",
+      "ElevenLabs voiceover, then a pause trimmer in plain JavaScript that shortens long silences and records exactly where each cut falls",
+      "A shot list timed to the real voiceover, so each shot shows what is being said at that moment",
+      "An LLM writes the prompt for every shot. A rules linter rejects anything that would put text, logos, documents or screens in frame, sends failures back for one repair, and swaps in a safe prompt if they still fail",
+      "Every still goes through a Claude vision check before it is animated. The check fails closed, so a still with stray lettering never becomes a clip",
+      "Approved stills become 6-second clips with MiniMax Hailuo 2.3, and scripts written as dialogue get one lip-synced shot per line in each speaker's voice",
+      "Json2Video renders the 1080×1920 video with a generated music bed. If a shot fails, its neighbours stretch to cover the gap, so no clip ever plays twice",
+    ],
+    results: ["77-node n8n workflow", "About 4 to 6 minutes from script to finished video"],
+    stack: ["n8n", "elevenlabs", "claude", "minimax", "json2video", "openrouter", "kling", "higgsfield", "google-apis", "prompt-engineering"],
+    flowId: "video-pipeline",
+    caseStudy: {
+      role: "Automation engineer · design & build",
+      problem:
+        "Credit CRB wanted a steady supply of short vertical videos for social media. Each one meant writing shot ideas, generating footage, recording a voiceover and editing it all together by hand, and AI image models kept slipping lettering and fake logos into the frame.",
+      notes: [
+        "Generated clips are billed per second, so the expensive steps only run on stills that already passed the checks. I tried several models along the way, including Higgsfield and Kling AI Avatar, and kept the ones that gave the best result for the price.",
+      ],
+    },
+  },
 
   // ── Web apps & websites ─────────────────────────────────────────────────
+  {
+    slug: "visual-verse-prints",
+    title: "Visual Verse Prints",
+    kind: "web-app",
+    client: "Visual Verse Prints",
+    outcome: "Moved a print shop off its daily orders spreadsheet and onto a website with online ordering.",
+    summary:
+      "Website and back office for a print shop in Caloocan City. Customers order and pay online, and the owner and sales agents track referrals, quotes, orders and commissions in one place instead of a shared spreadsheet.",
+    contributions: [
+      "Public site with a services catalog the owner edits from the admin",
+      "Online ordering with no customer account: each order gets a private page for uploading artwork and bank-QR payment receipts",
+      "Admin dashboard for quotations, orders, receipt checks and weekly and monthly sales",
+      "Agent portal with referral tracking, a leaderboard and commission earned as the client pays",
+      "Supabase row-level security, so each agent only sees their own clients",
+      "A one-time import script that moved the old spreadsheet's history into Postgres",
+    ],
+    stack: ["nextjs", "react", "typescript", "tailwind", "supabase", "postgresql", "vercel"],
+    image: {
+      src: "/images/visual-verse.webp",
+      alt: "Visual Verse Prints homepage with the headline Every print tells a story",
+      width: 1600,
+      height: 816,
+    },
+    link: "https://visual-verse-prints-alpha.vercel.app",
+  },
   {
     slug: "business-loan-analyzer",
     title: "Business Loan Analyzer Tool",
@@ -359,22 +414,6 @@ export const projects: Project[] = [
     ],
     stack: ["n8n", "gohighlevel", "google-apis"],
     flowId: "podcast-outreach",
-  },
-  {
-    slug: "ai-video-pipeline",
-    title: "AI Video & Asset Pipeline",
-    kind: "automation",
-    client: "Credit CRB",
-    outcome: "Generates images and clips, checks them with AI vision, and assembles them into narrated videos.",
-    summary:
-      "Higgsfield stills pass a fail-closed Claude vision rules check and are auto-tagged into a clip library, then assembled with Json2Video and ElevenLabs voiceover.",
-    contributions: [
-      "A Claude vision check on every generated image that rejects anything with lettering, logos or cartoon styles",
-      "Auto-tagging into a reusable clip library",
-      "Json2Video assembly with ElevenLabs voiceover",
-      "Tested Kling and Minimax video models",
-    ],
-    stack: ["higgsfield", "claude", "json2video", "elevenlabs", "kling", "minimax"],
   },
   {
     slug: "site-performance-rescue",
