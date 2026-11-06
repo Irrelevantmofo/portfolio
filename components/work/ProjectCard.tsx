@@ -39,13 +39,18 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
             Case study
           </span>
         )}
+        {p.wip && !caseHref && (
+          <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-ink/85 px-2.5 py-1 font-mono text-[11px] font-medium text-fg">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+            In progress
+          </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-5">
         <p className="mb-2 font-mono text-[11px] text-subtle">
           {kindLabel[p.kind]}
           {p.client && ` · ${p.client}`}
-          {p.wip && " · WIP"}
         </p>
         <h3 className="text-base font-semibold text-fg">
           {caseHref ? (
@@ -87,7 +92,7 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
             )}
             {p.link && (
               <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-fg hover:text-accent">
-                {p.link.includes("github.com") ? "View source ↗" : "Visit site ↗"}
+                {p.link.includes("github.com") ? "View source ↗" : p.wip ? "See progress ↗" : "Visit site ↗"}
               </a>
             )}
           </div>

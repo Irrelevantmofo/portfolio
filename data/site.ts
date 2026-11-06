@@ -56,6 +56,14 @@ export const timeline: TimelineEntry[] = [
     highlights: ["Credit analyzer & loan-matching apps", "Content repurposing engine", "AI outbound dialer", "Outreach systems"],
   },
   {
+    period: "2025 – 2026",
+    role: "Frontend developer (contract)",
+    org: "Sobriety Hub",
+    summary:
+      "Built dashboard features for a platform that sober-living operators use to run their houses: residents, beds, payments and reporting. Mostly Next.js front end, with some API and Prisma work behind it.",
+    highlights: ["Stripe subscriptions & invoicing", "Resident filters & tags", "Role permissions", "Insights charts"],
+  },
+  {
     period: "2022 – present",
     role: "Full-stack Next.js developer",
     org: "Agency work (Germany)",

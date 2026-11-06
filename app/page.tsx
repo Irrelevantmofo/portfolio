@@ -93,7 +93,7 @@ export default function Home() {
             items={projects.map((p) => ({
               slug: p.slug,
               kind: p.kind,
-              featured: !!p.featured,
+              featured: !!p.featured && !p.inGrid,
               stack: p.stack,
               card: <ProjectCard project={p} />,
             }))}

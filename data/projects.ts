@@ -21,6 +21,7 @@ export interface Project {
   title: string;
   kind: ProjectKind;
   featured?: boolean; // the case studies
+  inGrid?: boolean; // featured, but also listed in the home "More projects" grid
   wip?: boolean;
   client?: string; // "Credit CRB", "Agency client (DE)", "Personal"
   outcome: string; // one-line result
@@ -49,6 +50,7 @@ export const projects: Project[] = [
     title: "Credit Report Analyzer & Credit Score Simulator",
     kind: "web-app",
     featured: true,
+    inGrid: true, // sits next to its sibling, the business loan analyzer
     client: "Credit CRB",
     outcome: "Turns a raw credit report PDF into a personalized roadmap to a 700+ score.",
     summary:
@@ -74,6 +76,28 @@ export const projects: Project[] = [
       problem:
         "A credit report is a dense PDF most people can't act on. Credit CRB needed a tool that reads the report for the visitor, shows what each fix would do to their score, and hands the sales team a qualified lead.",
     },
+  },
+  {
+    slug: "business-loan-analyzer",
+    title: "Business Loan Analyzer Tool",
+    kind: "web-app",
+    client: "Credit CRB",
+    outcome: "Matches a business with the loan offers it actually qualifies for.",
+    summary:
+      "An AI-powered tool that accepts business inputs and evaluates qualification criteria to automatically match users with eligible business loan offers.",
+    contributions: [
+      "Full-stack development with Next.js and Supabase (auth, database, storage)",
+      "AI-driven qualification and loan-matching logic via OpenRouter",
+      "GoHighLevel CRM integration for lead capture and automation",
+    ],
+    stack: ["nextjs", "react", "supabase", "postgresql", "openrouter", "gohighlevel"],
+    image: {
+      src: "/images/business-loan-analyzer.webp",
+      alt: "Business Loan Analyzer intake form",
+      width: 1600,
+      height: 812,
+    },
+    link: "https://creditcrb.com/business-loan-analyzer/",
   },
   {
     slug: "nessy-application",
@@ -230,26 +254,28 @@ export const projects: Project[] = [
     link: "https://visual-verse-prints-alpha.vercel.app",
   },
   {
-    slug: "business-loan-analyzer",
-    title: "Business Loan Analyzer Tool",
-    kind: "web-app",
-    client: "Credit CRB",
-    outcome: "Matches a business with the loan offers it actually qualifies for.",
+    slug: "fatf-website",
+    title: "From Arms to Farms Foundation",
+    kind: "website",
+    wip: true,
+    client: "Side project",
+    outcome: "Community website for a Philippine foundation, with online donations and pages the staff build themselves. Still in progress.",
     summary:
-      "An AI-powered tool that accepts business inputs and evaluates qualification criteria to automatically match users with eligible business loan offers.",
+      "A side project I'm building now: a Next.js and Sanity site where the foundation's staff put pages together from content blocks with a live preview, plus a donation page that takes payments through PayMongo.",
     contributions: [
-      "Full-stack development with Next.js and Supabase (auth, database, storage)",
-      "AI-driven qualification and loan-matching logic via OpenRouter",
-      "GoHighLevel CRM integration for lead capture and automation",
+      "A Sanity page builder with 16 content blocks that staff can add and reorder without a developer",
+      "Live, click-to-edit preview with Sanity Presentation and Next.js draft mode",
+      "A donation page that opens a PayMongo checkout for GCash, Maya and cards. The donation ledger and receipt emails come next",
+      "An animated landing page built with Motion and Lenis smooth scrolling",
     ],
-    stack: ["nextjs", "react", "supabase", "postgresql", "openrouter", "gohighlevel"],
+    stack: ["nextjs", "react", "typescript", "tailwind", "sanity", "vercel"],
     image: {
-      src: "/images/business-loan-analyzer.webp",
-      alt: "Business Loan Analyzer intake form",
+      src: "/images/fatf.webp",
+      alt: "From Arms to Farms Foundation website homepage",
       width: 1600,
-      height: 812,
+      height: 816,
     },
-    link: "https://creditcrb.com/business-loan-analyzer/",
+    link: "https://fatf-website.vercel.app",
   },
   {
     slug: "danaher-website",
