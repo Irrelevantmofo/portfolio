@@ -137,29 +137,26 @@ export const projects: Project[] = [
     featured: true,
     client: "Credit CRB",
     outcome:
-      "Turns one video or PDF into a full set of blog, article and social drafts, each with its own approve and reject links.",
+      "Every day it turns one of the company's videos into blog, article and social drafts, learns from how the owner edits them, and books the approved posts into GHL Social Planner.",
     summary:
-      "An n8n system that turns one long-form source into a reviewed, versioned set of channel-ready drafts, then generates hero images and queues them for publishing once approved.",
+      "Six n8n workflows: a daily video picker, a writer that drafts and validates five pieces per video, email review with approve, rewrite and as-is replies, a style learner, an image maker and an hourly scheduler that posts to GoHighLevel at the best time for each platform.",
     contributions: [
-      "A 71-node workflow that takes a form upload, extracts the text, pulls out key facts with an LLM, writes master content and then generates each asset",
-      "A validation retry ladder of up to 3 attempts per asset",
-      "Each draft is emailed with its own Approve / Reject links",
-      "Clients can ask for revisions by replying to the email. A Gmail trigger regenerates the draft and saves it as a new version",
-      "Approval triggers a second workflow for hero-image generation and the publish queue",
-      "Idempotency: a draft_id (job__type__seq) join key prevents double approvals",
+      "A daily picker reads the YouTube feeds and takes the newest video not used yet, skipping anything that is part of a series or course. If the writer fails on it, the next video is tried",
+      "Transcripts through Gemini, with a wait and retry and then a backup model. A master article with compliance settings becomes the base for every piece",
+      "Each piece is validated (key point, disclaimer, no links in social posts) and rewritten up to 3 times before it is emailed for review",
+      "The owner replies by email: highlight colors mark what to add, cut or reword, and an AS IS reply saves his own text word for word",
+      "From each AS IS edit, an LLM compares the AI draft with his version and saves reusable style rules, which go into every new draft",
+      "Hourly, approved posts with an approved image get the best time for their platform, one post per platform per day and never two from the same video on the same day, then go into GHL Social Planner with the image",
     ],
-    results: [
-      "71-node intake-to-generation workflow",
-      "Up to 3 validation attempts per asset before a human sees it",
-    ],
-    stack: ["n8n", "openrouter", "prompt-engineering", "google-apis", "webhooks"],
+    results: ["6 workflows, 220+ nodes", "5 drafts from every video, one video a day", "Up to 3 validation tries per piece before anyone reviews it"],
+    stack: ["n8n", "openrouter", "gohighlevel", "prompt-engineering", "google-apis", "webhooks"],
     flowId: "content-engine",
     caseStudy: {
       role: "Automation engineer · design & build",
       problem:
-        "Every webinar, video and PDF the company produced held material for a dozen posts, but turning it into blog, article and social drafts took hours of manual writing and back-and-forth review.",
+        "The company posts videos often, and each one held material for a dozen posts. Turning them into blog, article and social drafts took hours of writing, the owner rewrote most drafts in his own voice, and nothing reached the social calendar without someone scheduling it by hand.",
       notes: [
-        "A video-to-blog variant repurposes the company's YouTube videos into Facebook, LinkedIn and Instagram posts, varying text and CTAs to avoid platform flagging.",
+        "Approve and Reject are plain links, so email scanners and double clicks can open them. Every click checks the current status first, and a draft_id (job__type__number) ties the sheet, the email thread, the links and the image together. A catch-up job every 30 minutes picks up AS IS replies the main workflow missed.",
       ],
     },
   },
