@@ -128,7 +128,7 @@ export default function FlowReplay({ flow, autoPlay = false }: FlowReplayProps) 
       <div className="min-w-0 rounded-2xl border border-line bg-ink/70 p-3 sm:p-5">
         <div className="mb-4 flex items-center justify-between gap-3">
           <p className="font-mono text-xs text-subtle">
-            <span className="text-accent">●</span> workflow · {flow.nodes.length} nodes
+            <span className="text-accent">●</span> {flow.groups ? `${flow.groups.length} ${flow.groupKind === "stage" ? "stages" : "workflows"}` : "workflow"} · {flow.nodes.length} nodes
             <span className="ml-2 rounded border border-line px-1.5 py-0.5 text-[10px] uppercase">demo data</span>
           </p>
           <button
@@ -154,7 +154,8 @@ export default function FlowReplay({ flow, autoPlay = false }: FlowReplayProps) 
             activeNode={view.activeNode}
             activeEdge={view.activeEdge}
             visited={view.visited}
-            className="min-w-[700px]"
+            // Wide multi-workflow diagrams scroll sooner so their text stays readable.
+            className={flow.viewBox.w > 900 ? "min-w-[880px]" : "min-w-[700px]"}
           />
         </div>
       </div>

@@ -78,6 +78,20 @@ export default function FlowCanvas({
               </marker>
             ))}
           </defs>
+          {flow.groups?.map((g) => (
+            <rect
+              key={g.id}
+              x={g.x}
+              y={g.y}
+              width={g.w}
+              height={g.h}
+              rx={14}
+              fill="var(--color-surface)"
+              fillOpacity={0.35}
+              stroke="var(--color-line-strong)"
+              strokeDasharray="4 6"
+            />
+          ))}
           {flow.edges.map((e) => {
             const g = edgeGeometry(byId.get(e.from)!, byId.get(e.to)!, NODE_W, NODE_H, e.offset);
             const lit = complete || activeEdge === e.id || visited?.has(e.id);
@@ -98,6 +112,17 @@ export default function FlowCanvas({
           })}
           <circle ref={packetRef} r={5} fill="var(--color-accent)" className="packet" opacity={0} />
         </svg>
+
+        {flow.groups?.map((g) => (
+          <span
+            key={g.id}
+            // Solid background, like a fieldset legend, so edges passing under the title don't cut through it.
+            className="absolute -translate-y-1/2 rounded bg-ink px-[0.5em] font-mono text-[0.82em] whitespace-nowrap text-subtle"
+            style={{ left: pct(g.x + 10, w), top: pct(g.y, h) }}
+          >
+            {g.label}
+          </span>
+        ))}
 
         {flow.edges
           .filter((e) => e.label)
