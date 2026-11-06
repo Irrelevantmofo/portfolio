@@ -168,14 +168,14 @@ function Graph({
               {n.icon}
             </span>
             <span className="min-w-0 leading-tight">
-              <span className="block truncate text-[13px] font-medium text-fg">{n.label}</span>
-              <span className="block truncate font-mono text-[11px] text-subtle">{n.sub}</span>
+              <span className="block truncate text-[15px] font-medium text-fg">{n.label}</span>
+              <span className="block truncate font-mono text-[12px] text-subtle">{n.sub}</span>
             </span>
 
             <span
               aria-hidden="true"
               className={clsx(
-                "pointer-events-none absolute top-full left-1/2 z-20 mt-2 w-max max-w-56 -translate-x-1/2 rounded-md border border-line-strong bg-ink px-2.5 py-1.5 font-mono text-[11px] leading-snug text-muted shadow-xl transition-opacity duration-150",
+                "pointer-events-none absolute top-full left-1/2 z-20 mt-2 w-max max-w-56 -translate-x-1/2 rounded-md border border-line-strong bg-ink px-2.5 py-1.5 font-mono text-[12px] leading-snug text-muted shadow-xl transition-opacity duration-150",
                 active ? "opacity-100" : "opacity-0",
               )}
             >

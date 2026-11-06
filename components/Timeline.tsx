@@ -59,7 +59,7 @@ function Entry({ entry: e, right }: { entry: TimelineEntry; right: boolean }) {
         <p className="mt-2 text-sm leading-relaxed text-muted">{e.summary}</p>
         <ul className={clsx("mt-3 flex flex-wrap gap-1.5", !right && "md:justify-end")}>
           {e.highlights.map((h) => (
-            <li key={h} className="rounded border border-line px-2 py-0.5 font-mono text-[11px] text-subtle">
+            <li key={h} className="rounded border border-line px-2 py-0.5 font-mono text-[12px] text-subtle">
               {h}
             </li>
           ))}

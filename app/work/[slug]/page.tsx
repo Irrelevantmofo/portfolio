@@ -75,7 +75,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{p.outcome}</p>
         <div className="mt-6 flex flex-wrap items-center gap-2">
           {p.stack.map((id) => (
-            <span key={id} className="rounded-md border border-line bg-surface px-2 py-1 font-mono text-[11px] text-muted">
+            <span key={id} className="rounded-md border border-line bg-surface px-2 py-1 font-mono text-[12px] text-muted">
               {getTool(id).name}
             </span>
           ))}
@@ -104,7 +104,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <Block n="02" title="What I built">
           <ul className="grid gap-3 sm:grid-cols-2">
             {p.contributions.map((c) => (
-              <li key={c} className="flex gap-3 rounded-xl border border-line bg-surface p-4 text-[15px] leading-relaxed text-fg">
+              <li key={c} className="flex gap-3 rounded-xl border border-line bg-surface p-4 text-[17px] leading-relaxed text-fg">
                 <span aria-hidden="true" className="text-accent">
                   ✓
                 </span>
@@ -144,7 +144,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {p.results?.length ? (
             <ul className="grid gap-3 sm:grid-cols-3">
               {p.results.map((r) => (
-                <li key={r} className="rounded-xl border border-accent/30 bg-accent/5 p-4 text-[15px] leading-relaxed text-fg">
+                <li key={r} className="rounded-xl border border-accent/30 bg-accent/5 p-4 text-[17px] leading-relaxed text-fg">
                   {r}
                 </li>
               ))}

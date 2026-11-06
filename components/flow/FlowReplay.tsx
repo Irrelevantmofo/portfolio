@@ -129,7 +129,7 @@ export default function FlowReplay({ flow, autoPlay = false }: FlowReplayProps) 
         <div className="mb-4 flex items-center justify-between gap-3">
           <p className="font-mono text-xs text-subtle">
             <span className="text-accent">●</span> {flow.groups ? `${flow.groups.length} ${flow.groupKind === "stage" ? "stages" : "workflows"}` : "workflow"} · {flow.nodes.length} nodes
-            <span className="ml-2 rounded border border-line px-1.5 py-0.5 text-[10px] uppercase">demo data</span>
+            <span className="ml-2 rounded border border-line px-1.5 py-0.5 text-[12px] uppercase">demo data</span>
           </p>
           <button
             type="button"

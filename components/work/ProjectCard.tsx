@@ -35,12 +35,12 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
           <div className="dot-grid grid size-full place-items-center font-mono text-sm text-subtle">{p.outcome}</div>
         )}
         {caseHref && (
-          <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 font-mono text-[11px] font-medium text-ink">
+          <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 font-mono text-[12px] font-medium text-ink">
             Case study
           </span>
         )}
         {p.wip && !caseHref && (
-          <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-ink/85 px-2.5 py-1 font-mono text-[11px] font-medium text-fg">
+          <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-ink/85 px-2.5 py-1 font-mono text-[12px] font-medium text-fg">
             <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
             In progress
           </span>
@@ -48,7 +48,7 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <p className="mb-2 font-mono text-[11px] text-subtle">
+        <p className="mb-2 font-mono text-[12px] text-subtle">
           {kindLabel[p.kind]}
           {p.client && ` · ${p.client}`}
         </p>
@@ -63,7 +63,7 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
         </h3>
         <p className="mt-1.5 text-sm text-muted">{p.outcome}</p>
 
-        <ul className="mt-4 space-y-1.5 text-[13px] leading-snug text-muted">
+        <ul className="mt-4 space-y-1.5 text-[15px] leading-snug text-muted">
           {p.contributions.slice(0, 3).map((c) => (
             <li key={c} className="flex gap-2">
               <span aria-hidden="true" className="text-accent">
@@ -78,7 +78,7 @@ export default function ProjectCard({ project: p, eager = false }: { project: Pr
           {p.stack.length > 0 && (
             <ul className="mb-4 flex flex-wrap gap-1.5" aria-label="Stack">
               {p.stack.map((id) => (
-                <li key={id} className="rounded border border-line px-1.5 py-0.5 font-mono text-[11px] text-subtle">
+                <li key={id} className="rounded border border-line px-1.5 py-0.5 font-mono text-[12px] text-subtle">
                   {getTool(id).name}
                 </li>
               ))}

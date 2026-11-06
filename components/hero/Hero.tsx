@@ -34,7 +34,7 @@ export default function Hero() {
             ))}
           </h1>
 
-          <p className="fade-up mt-6 max-w-xl text-lg leading-relaxed text-muted" style={{ "--d": "350ms" } as React.CSSProperties}>
+          <p className="fade-up mt-6 max-w-[40rem] text-lg leading-relaxed text-muted" style={{ "--d": "350ms" } as React.CSSProperties}>
             {stats.years}+ years shipping production apps with React, Next.js, AWS Serverless and Supabase. I also
             build n8n pipelines and AI agents that call leads, write content and keep your CRM up to date.
           </p>
@@ -68,7 +68,7 @@ export default function Hero() {
         </div>
 
         <div className="fade-up relative" style={{ "--d": "200ms" } as React.CSSProperties}>
-          <p className="mb-3 flex items-center justify-between font-mono text-[11px] text-subtle">
+          <p className="mb-3 flex items-center justify-between font-mono text-[12px] text-subtle">
             <span>{"// a system I run in production"}</span>
             <span className="hidden sm:inline">hover a node · click to jump</span>
           </p>

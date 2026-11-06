@@ -38,7 +38,7 @@ export default function ToolChip({ id, name, color, count, note, icon }: ToolChi
       title={[note, count ? `Used in ${count} project${count === 1 ? "" : "s"}` : "In production use"].filter(Boolean).join(" · ")}
       style={{ "--brand": color ?? "var(--color-accent)" } as React.CSSProperties}
       className={clsx(
-        "group/chip inline-flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-left text-sm transition-colors",
+        "group/chip inline-flex flex-wrap items-center gap-x-2 gap-y-0.5 rounded-lg border px-2.5 py-1.5 text-left text-sm transition-colors",
         selected
           ? "border-accent bg-accent/10 text-fg"
           : "border-line bg-ink/50 text-muted hover:border-line-strong hover:text-fg",
@@ -52,14 +52,14 @@ export default function ToolChip({ id, name, color, count, note, icon }: ToolChi
       >
         {icon}
       </span>
-      <span>
+      <span className="whitespace-nowrap">
         {name}
         {note && <span className="sr-only"> ({note})</span>}
       </span>
       {count > 0 ? (
-        <span className="rounded bg-surface-2 px-1.5 font-mono text-[10px] text-subtle tabular-nums">{count}</span>
+        <span className="rounded bg-surface-2 px-1.5 font-mono text-[12px] text-subtle tabular-nums">{count}</span>
       ) : (
-        <span className="font-mono text-[10px] text-subtle italic">in production use</span>
+        <span className="font-mono text-[12px] whitespace-nowrap text-subtle italic">in production use</span>
       )}
     </button>
   );

@@ -8,13 +8,24 @@
   --color-line: #262a35;
   --color-line-strong: #353a48;
   --color-fg: #eceef3;
-  --color-muted: #a0a6b4;
-  --color-subtle: #7f8698;
+  --color-muted: #b7bdca;
+  --color-subtle: #9299aa;
   --color-accent: #c6f432;
   --color-accent-dim: #8fb11f;
   --color-cyan: #5eead4;
   --color-warn: #fbbf24;
   --color-danger: #f87171;
+
+  /* Type scale, one step up from Tailwind's defaults: light text on a dark
+     background reads thinner, so nothing on the page drops below 12px. */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.6;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -33,6 +44,10 @@
   body {
     background: var(--color-ink);
     color: var(--color-fg);
+    /* Inter is variable: 450 keeps body copy from looking hairline on dark. */
+    font-size: var(--text-base);
+    line-height: 1.65;
+    font-weight: 450;
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
   }
