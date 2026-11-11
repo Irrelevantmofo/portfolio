@@ -100,6 +100,31 @@ export const projects: Project[] = [
     link: "https://creditcrb.com/business-loan-analyzer/",
   },
   {
+    slug: "referral-partner-program",
+    title: "Referral Partner Program",
+    kind: "web-app",
+    client: "Credit CRB",
+    outcome: "Partners sign up in about a minute, send in business owners they have talked to, and follow every deal and commission from their own account.",
+    summary:
+      "A standalone Next.js and Supabase app for Credit CRB's referral partners: a landing page, signup confirmed by a texted code, a partner account with deal stages and commission statements, and a staff page. Referrals become deals in a GoHighLevel pipeline and their stage syncs back to the partner.",
+    contributions: [
+      "Signup confirmed by a 6 digit code sent by SMS through GoHighLevel, passwords checked against leaked password lists, and a personal partner ID and referral link",
+      "Two tier commissions: partners earn on the businesses they send and a share on businesses sent by partners they recruited, shown as a printable monthly statement",
+      "Every referral becomes a GoHighLevel contact and deal. When staff move the deal, a webhook nudges the app, which reads the real stage back from the GHL API, so a forged call can't change anything",
+      "Commission payments come in from GHL records on a schedule, and the partner's account updates live through Supabase Realtime",
+      "One codebase builds two separately branded sites. Before release, a build check scans every file of one brand for the other brand's name, phone number and address",
+      "The client's copy rules run as tests (banned words, title case headings, a grade 6 reading level, nothing that looks clickable unless it is), and every page is checked with axe",
+    ],
+    stack: ["nextjs", "react", "typescript", "tailwind", "supabase", "postgresql", "gohighlevel", "webhooks", "vercel"],
+    image: {
+      src: "/images/referral-partners.webp",
+      alt: "Credit CRB Referral Partners landing page with a phone showing a texted signup code",
+      width: 1600,
+      height: 816,
+    },
+    link: "https://partners.creditcrbusa.com",
+  },
+  {
     slug: "nessy-application",
     title: "Nessy Cloud",
     kind: "web-app",
