@@ -519,7 +519,7 @@ export function getProject(slug: string): Project | undefined {
  * personal/WIP work and the performance audit (not a new build).
  */
 export const shippedProjectCount = projects.filter(
-  (p) => p.kind !== "automation" && p.client !== "Personal" && p.slug !== "site-performance-rescue",
+  (p) => !p.wip && p.kind !== "automation" && p.client !== "Personal" && p.slug !== "site-performance-rescue",
 ).length;
 
 export const kindLabel: Record<ProjectKind, string> = {
