@@ -7,7 +7,7 @@ const items = [
   { value: stats.years, suffix: "+", label: "Years building for the web" },
   { value: shippedProjectCount, suffix: "", label: "Production projects shipped" },
   { value: stats.n8nWorkflows, suffix: "+", label: "n8n workflows built" },
-  { value: stats.concurrentCalls, suffix: "", label: "Max AI calls at once" },
+  { value: stats.contentSystemNodes, suffix: "+", label: "n8n nodes in one content system" },
 ];
 
 export default function ProofBar() {

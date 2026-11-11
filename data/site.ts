@@ -33,7 +33,7 @@ export const stats = {
   years: 7,
   // TODO(Joshua): confirm. The n8n workspace shows 92, some of them one-off.
   n8nWorkflows: 90,
-  concurrentCalls: 45,
+  contentSystemNodes: 220, // the 6 content-engine workflows, sticky notes excluded (Nov 2026)
   loadBefore: 11,
   loadAfter: "2–3",
 } as const;
